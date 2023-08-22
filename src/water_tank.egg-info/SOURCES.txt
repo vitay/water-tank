@@ -1,0 +1,16 @@
+LICENSE.txt
+README.md
+pyproject.toml
+src/water_tank/Inputs.py
+src/water_tank/LearningRules.py
+src/water_tank/Projections.py
+src/water_tank/RandomDistributions.py
+src/water_tank/Readouts.py
+src/water_tank/Reservoirs.py
+src/water_tank/__about__.py
+src/water_tank/__init__.py
+src/water_tank.egg-info/PKG-INFO
+src/water_tank.egg-info/SOURCES.txt
+src/water_tank.egg-info/dependency_links.txt
+src/water_tank.egg-info/requires.txt
+src/water_tank.egg-info/top_level.txt
