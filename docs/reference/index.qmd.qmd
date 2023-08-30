@@ -1,0 +1,427 @@
+# Layers
+
+Layers available for inputs, reservoirs, readouts, etc.
+
+## RecurrentLayer { #water_tank.RecurrentLayer }
+
+`RecurrentLayer(self, size, tau=10.0, transfer_function='tanh')`
+
+Reservoir of recurrently connected neurons.
+
+$$\tau \, \frac{d \mathbf{x}(t)}{dt} + \mathbf{x}(t) = W^\text{in} \times I(t) + W^\text{rec} \times \mathbf{r}(t) + W^\text{fb} \times \mathbf{z}(t)$$
+    
+$$\mathbf{r}(t) = f(\mathbf{x}(t))$$
+
+### Parameters
+
+| Name                | Type   | Description        | Default    |
+|---------------------|--------|--------------------|------------|
+| `size`              | int    | number of neurons. | _required_ |
+| `tau`               | float  | time constant.     | `10.0`     |
+| `transfer_function` | str    | transfer function. | `'tanh'`   |
+
+### Methods
+
+| Name | Description |
+| --- | --- |
+| [output](#water_tank.RecurrentLayer.output) |  |
+| [step](#water_tank.RecurrentLayer.step) | Performs one update of the internal variables. |
+
+#### output { #water_tank.RecurrentLayer.output }
+
+`RecurrentLayer.output(self)`
+
+##### Returns
+
+| Type   | Description             |
+|--------|-------------------------|
+| None   | a vector of activities. |
+
+#### step { #water_tank.RecurrentLayer.step }
+
+`RecurrentLayer.step(self)`
+
+Performs one update of the internal variables.
+
+## LinearReadout { #water_tank.LinearReadout }
+
+`LinearReadout(self, size)`
+
+Linear readout layer. Performs a weighted sum of its inputs, without dynamics.
+
+$$\mathbf{z} = W^o \times \mathbf{r}$$
+
+### Parameters
+
+| Name   | Type   | Description        | Default    |
+|--------|--------|--------------------|------------|
+| `size` | int    | number of neurons. | _required_ |
+
+### Methods
+
+| Name | Description |
+| --- | --- |
+| [output](#water_tank.LinearReadout.output) |  |
+| [step](#water_tank.LinearReadout.step) | Performs one update of the internal variables. |
+
+#### output { #water_tank.LinearReadout.output }
+
+`LinearReadout.output(self)`
+
+##### Returns
+
+| Type          | Description             |
+|---------------|-------------------------|
+| numpy.ndarray | a vector of activities. |
+
+#### step { #water_tank.LinearReadout.step }
+
+`LinearReadout.step(self, force=None)`
+
+Performs one update of the internal variables.
+
+##### Parameters
+
+| Name    | Type          | Description                                           | Default   |
+|---------|---------------|-------------------------------------------------------|-----------|
+| `force` | numpy.ndarray | if not None, force the output to the provided vector. | `None`    |
+
+## StaticInput { #water_tank.StaticInput }
+
+`StaticInput(self, size)`
+
+Static placeholder for input vectors.
+
+### Parameters
+
+| Name   | Type   | Description         | Default    |
+|--------|--------|---------------------|------------|
+| `size` | int    | size of the vector. | _required_ |
+
+### Methods
+
+| Name | Description |
+| --- | --- |
+| [output](#water_tank.StaticInput.output) |  |
+| [set](#water_tank.StaticInput.set) | Sets the value of the vector. The dimensions must match with `self.size`. |
+| [step](#water_tank.StaticInput.step) | Does nothing. |
+
+#### output { #water_tank.StaticInput.output }
+
+`StaticInput.output(self)`
+
+##### Returns
+
+| Type          | Description             |
+|---------------|-------------------------|
+| numpy.ndarray | a vector of activities. |
+
+#### set { #water_tank.StaticInput.set }
+
+`StaticInput.set(self, value)`
+
+Sets the value of the vector. The dimensions must match with `self.size`.
+
+##### Parameters
+
+| Name    | Type          | Description       | Default    |
+|---------|---------------|-------------------|------------|
+| `value` | numpy.ndarray | new vector value. | _required_ |
+
+#### step { #water_tank.StaticInput.step }
+
+`StaticInput.step(self)`
+
+Does nothing.
+
+## TimeSeriesInput { #water_tank.TimeSeriesInput }
+
+`TimeSeriesInput(self, size, loop=True)`
+
+Dynamic placeholder for series of input vectors.
+
+### Parameters
+
+| Name   | Type   | Description                                                | Default    |
+|--------|--------|------------------------------------------------------------|------------|
+| `size` | int    | size of the input vector.                                  | _required_ |
+| `loop` | bool   | defines whether the buffer loops when arriving at the end. | `True`     |
+
+### Methods
+
+| Name | Description |
+| --- | --- |
+| [output](#water_tank.TimeSeriesInput.output) |  |
+| [reset](#water_tank.TimeSeriesInput.reset) | Resets the buffer. |
+| [set](#water_tank.TimeSeriesInput.set) | Sets the buffer to `value`. |
+| [step](#water_tank.TimeSeriesInput.step) | Reads the next value. |
+
+#### output { #water_tank.TimeSeriesInput.output }
+
+`TimeSeriesInput.output(self)`
+
+##### Returns
+
+| Type          | Description             |
+|---------------|-------------------------|
+| numpy.ndarray | a vector of activities. |
+
+#### reset { #water_tank.TimeSeriesInput.reset }
+
+`TimeSeriesInput.reset(self)`
+
+Resets the buffer.
+
+#### set { #water_tank.TimeSeriesInput.set }
+
+`TimeSeriesInput.set(self, value)`
+
+Sets the buffer to `value`.
+
+#### step { #water_tank.TimeSeriesInput.step }
+
+`TimeSeriesInput.step(self)`
+
+Reads the next value.
+
+# Projections
+
+Connecting layers with each other.
+
+## connect { #water_tank.connect }
+
+`connect(pre, post, weights, bias=None, sparseness=1.0)`
+
+Connects two layers with a (sparse) weight matrix and optionally a bias vector. 
+
+### Parameters
+
+| Name         | Type                                                                     | Description                                                                                                     | Default    |
+|--------------|--------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|------------|
+| `pre`        | Layer                                                                    | input layer.                                                                                                    | _required_ |
+| `post`       | Layer                                                                    | output layer.                                                                                                   | _required_ |
+| `weights`    | typing.Union\[float, water_tank.RandomDistributions.RandomDistribution\] | float or `RandomDistribution` to create the weight matrix.                                                      | _required_ |
+| `bias`       | typing.Union\[float, water_tank.RandomDistributions.RandomDistribution\] | bias per post neuron. If `None` or `False`, no bias is used. Otherwise, can be a float or `RandomDistribution`. | `None`     |
+| `sparseness` | float                                                                    | density of the weight matrix.                                                                                   | `1.0`      |
+
+### Returns
+
+| Type       | Description                                         |
+|------------|-----------------------------------------------------|
+| Projection | a `DenseProjection` or `SparseProjection` instance. |
+
+## DenseProjection { #water_tank.DenseProjection }
+
+`DenseProjection(self, pre, post, weights, bias=None)`
+
+Dense weight matrix. Created and returned by `connect()`.
+
+### Parameters
+
+| Name      | Type                                                                     | Description                                                                                                     | Default    |
+|-----------|--------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|------------|
+| `pre`     | Layer                                                                    | input layer.                                                                                                    | _required_ |
+| `post`    | Layer                                                                    | output layer.                                                                                                   | _required_ |
+| `weights` | typing.Union\[float, water_tank.RandomDistributions.RandomDistribution\] | float or `RandomDistribution` to create the weight matrix.                                                      | _required_ |
+| `bias`    | typing.Union\[float, water_tank.RandomDistributions.RandomDistribution\] | bias per post neuron. If `None` or `False`, no bias is used. Otherwise, can be a float or `RandomDistribution`. | `None`     |
+
+### Methods
+
+| Name | Description |
+| --- | --- |
+| [input](#water_tank.DenseProjection.input) |  |
+| [nb_connections](#water_tank.DenseProjection.nb_connections) |  |
+| [step](#water_tank.DenseProjection.step) | Performs a weighted sum of inputs plus bias. |
+
+#### input { #water_tank.DenseProjection.input }
+
+`DenseProjection.input(self, idx)`
+
+##### Returns
+
+| Type          | Description                                                 |
+|---------------|-------------------------------------------------------------|
+| numpy.ndarray | the vector of inputs received by the neuron of index `idx`. |
+
+#### nb_connections { #water_tank.DenseProjection.nb_connections }
+
+`DenseProjection.nb_connections(self, idx)`
+
+##### Returns
+
+| Type   | Description                                                  |
+|--------|--------------------------------------------------------------|
+| int    | the number of weights received by the neuron of index `idx`. |
+
+#### step { #water_tank.DenseProjection.step }
+
+`DenseProjection.step(self)`
+
+Performs a weighted sum of inputs plus bias.
+
+## SparseProjection { #water_tank.SparseProjection }
+
+`SparseProjection(self, pre, post, weights, bias=None, sparseness=0.1)`
+
+Sparse weight matrix.  Created and returned by `connect()`.
+
+### Parameters
+
+| Name         | Type                                                                     | Description                                                                                                     | Default    |
+|--------------|--------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|------------|
+| `pre`        | Layer                                                                    | input layer.                                                                                                    | _required_ |
+| `post`       | Layer                                                                    | output layer.                                                                                                   | _required_ |
+| `weights`    | typing.Union\[float, water_tank.RandomDistributions.RandomDistribution\] | float or `RandomDistribution` to create the weight matrix.                                                      | _required_ |
+| `bias`       | typing.Union\[float, water_tank.RandomDistributions.RandomDistribution\] | bias per post neuron. If `None` or `False`, no bias is used. Otherwise, can be a float or `RandomDistribution`. | `None`     |
+| `sparseness` | float                                                                    | density of the weight matrix.                                                                                   | `0.1`      |
+
+### Methods
+
+| Name | Description |
+| --- | --- |
+| [input](#water_tank.SparseProjection.input) |  |
+| [nb_connections](#water_tank.SparseProjection.nb_connections) |  |
+| [step](#water_tank.SparseProjection.step) | Performs a weighted sum of inputs plus bias. |
+
+#### input { #water_tank.SparseProjection.input }
+
+`SparseProjection.input(self, idx)`
+
+##### Returns
+
+| Type          | Description                                                 |
+|---------------|-------------------------------------------------------------|
+| numpy.ndarray | the vector of inputs received by the neuron of index `idx`. |
+
+#### nb_connections { #water_tank.SparseProjection.nb_connections }
+
+`SparseProjection.nb_connections(self, idx)`
+
+##### Returns
+
+| Type   | Description                                                  |
+|--------|--------------------------------------------------------------|
+| int    | the number of weights received by the neuron of index `idx`. |
+
+#### step { #water_tank.SparseProjection.step }
+
+`SparseProjection.step(self)`
+
+Performs a weighted sum of inputs plus bias.
+
+# Learning rules
+
+Learning rules for online training of a projection.
+
+## DeltaLearningRule { #water_tank.DeltaLearningRule }
+
+`DeltaLearningRule(self, projection, learning_rate)`
+
+## RLS { #water_tank.RLS }
+
+`RLS(self, projection, delta)`
+
+Recursive least-squares (RLS) learning rule for FORCE learning.
+
+# Random distributions
+
+Simple wrappers around numpy's random distributions.
+
+## Const { #water_tank.Const }
+
+`Const(self, value)`
+
+Constant "random" distribution, returning the same value.
+
+### Parameters
+
+| Name    | Type   | Description     | Default    |
+|---------|--------|-----------------|------------|
+| `value` | float  | constant value. | _required_ |
+
+### Methods
+
+| Name | Description |
+| --- | --- |
+| [sample](#water_tank.Const.sample) | Samples from the distribution and returns an array of the desired shape. |
+
+#### sample { #water_tank.Const.sample }
+
+`Const.sample(self, shape)`
+
+Samples from the distribution and returns an array of the desired shape.
+
+## Uniform { #water_tank.Uniform }
+
+`Uniform(self, min, max)`
+
+Uniform distribution, returning values between `min` and `max`.
+
+### Parameters
+
+| Name   | Type   | Description   | Default    |
+|--------|--------|---------------|------------|
+| `min`  | float  | lower bound.  | _required_ |
+| `max`  | float  | upper bound.  | _required_ |
+
+### Methods
+
+| Name | Description |
+| --- | --- |
+| [sample](#water_tank.Uniform.sample) | Samples from the distribution and returns an array of the desired shape. |
+
+#### sample { #water_tank.Uniform.sample }
+
+`Uniform.sample(self, shape)`
+
+Samples from the distribution and returns an array of the desired shape.
+
+## Normal { #water_tank.Normal }
+
+`Normal(self, mean, std)`
+
+Normal distribution, returning values with a mean of `mean` and a standard deviation of `std`.
+
+### Parameters
+
+| Name   | Type   | Description         | Default    |
+|--------|--------|---------------------|------------|
+| `mean` | float  | mean.               | _required_ |
+| `std`  | float  | standard deviation. | _required_ |
+
+### Methods
+
+| Name | Description |
+| --- | --- |
+| [sample](#water_tank.Normal.sample) | Samples from the distribution and returns an array of the desired shape. |
+
+#### sample { #water_tank.Normal.sample }
+
+`Normal.sample(self, shape)`
+
+Samples from the distribution and returns an array of the desired shape.
+
+## Bernouilli { #water_tank.Bernouilli }
+
+`Bernouilli(self, values, p=0.5)`
+
+Bernouilli (binomial) distribution, returning the first of the two values with probability $p$.
+
+### Parameters
+
+| Name     | Type   | Description                               | Default    |
+|----------|--------|-------------------------------------------|------------|
+| `values` | list   | list of values.                           | _required_ |
+| `p`      | float  | probability of returning the first value. | `0.5`      |
+
+### Methods
+
+| Name | Description |
+| --- | --- |
+| [sample](#water_tank.Bernouilli.sample) | Samples from the distribution and returns an array of the desired shape. |
+
+#### sample { #water_tank.Bernouilli.sample }
+
+`Bernouilli.sample(self, shape)`
+
+Samples from the distribution and returns an array of the desired shape.

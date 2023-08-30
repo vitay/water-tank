@@ -1,0 +1,3 @@
+# DeltaLearningRule { #water_tank.DeltaLearningRule }
+
+`DeltaLearningRule(self, projection, learning_rate)`

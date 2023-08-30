@@ -1,0 +1,42 @@
+# LinearReadout { #water_tank.LinearReadout }
+
+`LinearReadout(self, size)`
+
+Linear readout layer. Performs a weighted sum of its inputs, without dynamics.
+
+$$\mathbf{z} = W^o \times \mathbf{r}$$
+
+## Parameters
+
+| Name   | Type   | Description        | Default    |
+|--------|--------|--------------------|------------|
+| `size` | int    | number of neurons. | _required_ |
+
+## Methods
+
+| Name | Description |
+| --- | --- |
+| [output](#water_tank.LinearReadout.output) |  |
+| [step](#water_tank.LinearReadout.step) | Performs one update of the internal variables. |
+
+### output { #water_tank.LinearReadout.output }
+
+`LinearReadout.output(self)`
+
+#### Returns
+
+| Type          | Description             |
+|---------------|-------------------------|
+| numpy.ndarray | a vector of activities. |
+
+### step { #water_tank.LinearReadout.step }
+
+`LinearReadout.step(self, force=None)`
+
+Performs one update of the internal variables.
+
+#### Parameters
+
+| Name    | Type          | Description                                           | Default   |
+|---------|---------------|-------------------------------------------------------|-----------|
+| `force` | numpy.ndarray | if not None, force the output to the provided vector. | `None`    |

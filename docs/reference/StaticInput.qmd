@@ -1,0 +1,47 @@
+# StaticInput { #water_tank.StaticInput }
+
+`StaticInput(self, size)`
+
+Static placeholder for input vectors.
+
+## Parameters
+
+| Name   | Type   | Description         | Default    |
+|--------|--------|---------------------|------------|
+| `size` | int    | size of the vector. | _required_ |
+
+## Methods
+
+| Name | Description |
+| --- | --- |
+| [output](#water_tank.StaticInput.output) |  |
+| [set](#water_tank.StaticInput.set) | Sets the value of the vector. The dimensions must match with `self.size`. |
+| [step](#water_tank.StaticInput.step) | Does nothing. |
+
+### output { #water_tank.StaticInput.output }
+
+`StaticInput.output(self)`
+
+#### Returns
+
+| Type          | Description             |
+|---------------|-------------------------|
+| numpy.ndarray | a vector of activities. |
+
+### set { #water_tank.StaticInput.set }
+
+`StaticInput.set(self, value)`
+
+Sets the value of the vector. The dimensions must match with `self.size`.
+
+#### Parameters
+
+| Name    | Type          | Description       | Default    |
+|---------|---------------|-------------------|------------|
+| `value` | numpy.ndarray | new vector value. | _required_ |
+
+### step { #water_tank.StaticInput.step }
+
+`StaticInput.step(self)`
+
+Does nothing.

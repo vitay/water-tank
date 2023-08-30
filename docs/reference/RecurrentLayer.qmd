@@ -1,0 +1,40 @@
+# RecurrentLayer { #water_tank.RecurrentLayer }
+
+`RecurrentLayer(self, size, tau=10.0, transfer_function='tanh')`
+
+Reservoir of recurrently connected neurons.
+
+$$\tau \, \frac{d \mathbf{x}(t)}{dt} + \mathbf{x}(t) = W^\text{in} \times I(t) + W^\text{rec} \times \mathbf{r}(t) + W^\text{fb} \times \mathbf{z}(t)$$
+    
+$$\mathbf{r}(t) = f(\mathbf{x}(t))$$
+
+## Parameters
+
+| Name                | Type   | Description        | Default    |
+|---------------------|--------|--------------------|------------|
+| `size`              | int    | number of neurons. | _required_ |
+| `tau`               | float  | time constant.     | `10.0`     |
+| `transfer_function` | str    | transfer function. | `'tanh'`   |
+
+## Methods
+
+| Name | Description |
+| --- | --- |
+| [output](#water_tank.RecurrentLayer.output) |  |
+| [step](#water_tank.RecurrentLayer.step) | Performs one update of the internal variables. |
+
+### output { #water_tank.RecurrentLayer.output }
+
+`RecurrentLayer.output(self)`
+
+#### Returns
+
+| Type   | Description             |
+|--------|-------------------------|
+| None   | a vector of activities. |
+
+### step { #water_tank.RecurrentLayer.step }
+
+`RecurrentLayer.step(self)`
+
+Performs one update of the internal variables.

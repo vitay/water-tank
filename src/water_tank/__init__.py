@@ -1,3 +1,4 @@
+# Time measurement
 from functools import wraps
 from time import time
 
@@ -12,8 +13,10 @@ def measure(func):
             print(f"Execution time: {end_ if end_ > 0 else 0} ms")
     return _time_it
 
-from .Inputs import StaticInput, TimeSeriesInput
-from .Reservoirs import TanhReservoir
-from .Readouts import LinearReadout
+# Imports
+from .Layers import StaticInput, TimeSeriesInput, LinearReadout
+from .Reservoirs import RecurrentLayer
+from .Projections import connect, DenseProjection, SparseProjection
 from .LearningRules import DeltaLearningRule, RLS
-from .RandomDistributions import *
+from .RandomDistributions import Const, Uniform, Normal, Bernouilli
+from .Recorder import Recorder

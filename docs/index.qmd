@@ -1,0 +1,21 @@
+# Water Tank 
+
+Water tanks are plastic reservoirs.
+
+## Installation
+
+Dependencies:
+
+* `python`>= 3.9
+* `numpy` >= 1.21
+* `scipy`>= 1.11
+
+In a virtual environment:
+
+```console
+pip install git+https://github.com/vitay/water-tank.git@master
+```
+
+## License
+
+`water-tank` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.

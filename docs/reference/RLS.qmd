@@ -1,0 +1,5 @@
+# RLS { #water_tank.RLS }
+
+`RLS(self, projection, delta)`
+
+Recursive least-squares (RLS) learning rule for FORCE learning.

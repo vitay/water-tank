@@ -1,0 +1,21 @@
+# connect { #water_tank.connect }
+
+`connect(pre, post, weights, bias=None, sparseness=1.0)`
+
+Connects two layers with a (sparse) weight matrix and optionally a bias vector. 
+
+## Parameters
+
+| Name         | Type                                                                     | Description                                                                                                     | Default    |
+|--------------|--------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|------------|
+| `pre`        | Layer                                                                    | input layer.                                                                                                    | _required_ |
+| `post`       | Layer                                                                    | output layer.                                                                                                   | _required_ |
+| `weights`    | typing.Union\[float, water_tank.RandomDistributions.RandomDistribution\] | float or `RandomDistribution` to create the weight matrix.                                                      | _required_ |
+| `bias`       | typing.Union\[float, water_tank.RandomDistributions.RandomDistribution\] | bias per post neuron. If `None` or `False`, no bias is used. Otherwise, can be a float or `RandomDistribution`. | `None`     |
+| `sparseness` | float                                                                    | density of the weight matrix.                                                                                   | `1.0`      |
+
+## Returns
+
+| Type       | Description                                         |
+|------------|-----------------------------------------------------|
+| Projection | a `DenseProjection` or `SparseProjection` instance. |

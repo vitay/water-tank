@@ -1,0 +1,23 @@
+# RandomDistributions.Const { #water_tank.RandomDistributions.Const }
+
+`RandomDistributions.Const(self, value)`
+
+Constant "random" distribution, returning the same value.
+
+## Parameters
+
+| Name    | Type   | Description     | Default    |
+|---------|--------|-----------------|------------|
+| `value` | float  | constant value. | _required_ |
+
+## Methods
+
+| Name | Description |
+| --- | --- |
+| [sample](#water_tank.RandomDistributions.Const.sample) | Samples from the distribution and returns an array of the desired shape. |
+
+### sample { #water_tank.RandomDistributions.Const.sample }
+
+`RandomDistributions.Const.sample(self, shape)`
+
+Samples from the distribution and returns an array of the desired shape.

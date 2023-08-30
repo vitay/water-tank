@@ -1,0 +1,24 @@
+# RandomDistributions.Uniform { #water_tank.RandomDistributions.Uniform }
+
+`RandomDistributions.Uniform(self, min, max)`
+
+Uniform distribution, returning values between `min` and `max`.
+
+## Parameters
+
+| Name   | Type   | Description   | Default    |
+|--------|--------|---------------|------------|
+| `min`  | float  | lower bound.  | _required_ |
+| `max`  | float  | upper bound.  | _required_ |
+
+## Methods
+
+| Name | Description |
+| --- | --- |
+| [sample](#water_tank.RandomDistributions.Uniform.sample) | Samples from the distribution and returns an array of the desired shape. |
+
+### sample { #water_tank.RandomDistributions.Uniform.sample }
+
+`RandomDistributions.Uniform.sample(self, shape)`
+
+Samples from the distribution and returns an array of the desired shape.

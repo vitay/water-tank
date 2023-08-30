@@ -1,0 +1,24 @@
+# Normal { #water_tank.Normal }
+
+`Normal(self, mean, std)`
+
+Normal distribution, returning values with a mean of `mean` and a standard deviation of `std`.
+
+## Parameters
+
+| Name   | Type   | Description         | Default    |
+|--------|--------|---------------------|------------|
+| `mean` | float  | mean.               | _required_ |
+| `std`  | float  | standard deviation. | _required_ |
+
+## Methods
+
+| Name | Description |
+| --- | --- |
+| [sample](#water_tank.Normal.sample) | Samples from the distribution and returns an array of the desired shape. |
+
+### sample { #water_tank.Normal.sample }
+
+`Normal.sample(self, shape)`
+
+Samples from the distribution and returns an array of the desired shape.

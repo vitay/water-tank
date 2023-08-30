@@ -1,0 +1,27 @@
+website:
+  sidebar:
+  - contents:
+    - reference/index.qmd
+    - contents:
+      - reference/RecurrentLayer.qmd
+      - reference/LinearReadout.qmd
+      - reference/StaticInput.qmd
+      - reference/TimeSeriesInput.qmd
+      section: Layers
+    - contents:
+      - reference/connect.qmd
+      - reference/DenseProjection.qmd
+      - reference/SparseProjection.qmd
+      section: Projections
+    - contents:
+      - reference/DeltaLearningRule.qmd
+      - reference/RLS.qmd
+      section: Learning rules
+    - contents:
+      - reference/Const.qmd
+      - reference/Uniform.qmd
+      - reference/Normal.qmd
+      - reference/Bernouilli.qmd
+      section: Random distributions
+    id: reference
+  - id: dummy-sidebar

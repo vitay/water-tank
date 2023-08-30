@@ -1,0 +1,24 @@
+# Bernouilli { #water_tank.Bernouilli }
+
+`Bernouilli(self, values, p=0.5)`
+
+Bernouilli (binomial) distribution, returning the first of the two values with probability $p$.
+
+## Parameters
+
+| Name     | Type   | Description                               | Default    |
+|----------|--------|-------------------------------------------|------------|
+| `values` | list   | list of values.                           | _required_ |
+| `p`      | float  | probability of returning the first value. | `0.5`      |
+
+## Methods
+
+| Name | Description |
+| --- | --- |
+| [sample](#water_tank.Bernouilli.sample) | Samples from the distribution and returns an array of the desired shape. |
+
+### sample { #water_tank.Bernouilli.sample }
+
+`Bernouilli.sample(self, shape)`
+
+Samples from the distribution and returns an array of the desired shape.

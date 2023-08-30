@@ -1,0 +1,100 @@
+project:
+  type: website
+  output-dir: ../site
+
+website:
+  title: "Water Tank"
+  page-navigation: true
+
+  navbar:
+    background: black
+    pinned: false
+
+    # Sections have their own sidebar. Only list the first file.
+    left:
+      - text: "Home"
+        file: index.qmd
+      - text: "Notebooks"
+        file: notebooks/MackeyGlass.ipynb
+      - text: "API Reference"
+        file: reference/index.qmd
+
+    right:
+      - icon: github
+        href: https://github.com/vitay/water-tank
+        aria-label: GitHub
+
+  sidebar:
+
+    - title: "Home"
+      style: "docked"
+      contents:
+        - index.qmd
+        - License.qmd
+
+    - title: "Notebooks"
+      style: "docked"
+      contents:
+        - notebooks/MackeyGlass.ipynb
+
+    - title: "API Reference"
+      style: "docked"
+      id: dummy-sidebar
+
+  page-footer:
+    center: |
+      Copyright Julien Vitay
+
+format:
+  html:
+    theme: [sandstone, assets/webpage.scss]
+    toc: true
+    page-layout: full
+    smooth-scroll: true
+    html-math-method: katex
+
+highlight-style: github
+code-line-numbers: false
+
+# Tell quarto to read the generated sidebar
+metadata-files:
+  - _sidebar.yml
+
+# Quartodoc inspects the docstrings for the API
+quartodoc:
+  # Package to document
+  package: water_tank
+
+  title: API reference
+  style: pkgdown
+  parser: google
+  
+  # write sidebar data to this file
+  sidebar: _sidebar.yml
+
+  sections:
+    - title: Layers
+      desc: Layers available for inputs, reservoirs, readouts, etc.
+      contents:
+        - RecurrentLayer
+        - LinearReadout
+        - StaticInput
+        - TimeSeriesInput
+    - title: Projections
+      desc: Connecting layers with each other.
+      contents:
+        - connect
+        - DenseProjection
+        - SparseProjection
+    - title: Learning rules
+      desc: Learning rules for online training of a projection.
+      contents:
+        - DeltaLearningRule
+        - RLS
+    - title: Random distributions
+      desc: Simple wrappers around numpy's random distributions.
+      contents:
+        - Const
+        - Uniform
+        - Normal
+        - Bernouilli

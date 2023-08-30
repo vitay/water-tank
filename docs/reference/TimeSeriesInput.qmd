@@ -1,0 +1,49 @@
+# TimeSeriesInput { #water_tank.TimeSeriesInput }
+
+`TimeSeriesInput(self, size, loop=True)`
+
+Dynamic placeholder for series of input vectors.
+
+## Parameters
+
+| Name   | Type   | Description                                                | Default    |
+|--------|--------|------------------------------------------------------------|------------|
+| `size` | int    | size of the input vector.                                  | _required_ |
+| `loop` | bool   | defines whether the buffer loops when arriving at the end. | `True`     |
+
+## Methods
+
+| Name | Description |
+| --- | --- |
+| [output](#water_tank.TimeSeriesInput.output) |  |
+| [reset](#water_tank.TimeSeriesInput.reset) | Resets the buffer. |
+| [set](#water_tank.TimeSeriesInput.set) | Sets the buffer to `value`. |
+| [step](#water_tank.TimeSeriesInput.step) | Reads the next value. |
+
+### output { #water_tank.TimeSeriesInput.output }
+
+`TimeSeriesInput.output(self)`
+
+#### Returns
+
+| Type          | Description             |
+|---------------|-------------------------|
+| numpy.ndarray | a vector of activities. |
+
+### reset { #water_tank.TimeSeriesInput.reset }
+
+`TimeSeriesInput.reset(self)`
+
+Resets the buffer.
+
+### set { #water_tank.TimeSeriesInput.set }
+
+`TimeSeriesInput.set(self, value)`
+
+Sets the buffer to `value`.
+
+### step { #water_tank.TimeSeriesInput.step }
+
+`TimeSeriesInput.step(self)`
+
+Reads the next value.

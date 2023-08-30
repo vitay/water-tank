@@ -1,0 +1,40 @@
+# Reservoir { #water_tank.Reservoir }
+
+`Reservoir(self, size, tau=10.0, transfer_function='tanh')`
+
+Reservoir of recurrent neurons.
+
+$$\tau \, \frac{d \mathbf{x}(t)}{dt} + \mathbf{x}(t) = W^\text{in} \times I(t) + W^\text{rec} \times \mathbf{r}(t) + W^\text{fb} \times \mathbf{z}(t)$$
+    
+$$\mathbf{r}(t) = f(\mathbf{x}(t))$$
+
+## Parameters
+
+| Name                | Type   | Description        | Default    |
+|---------------------|--------|--------------------|------------|
+| `size`              | int    | number of neurons. | _required_ |
+| `tau`               | float  | time constant.     | `10.0`     |
+| `transfer_function` | str    | transfer function. | `'tanh'`   |
+
+## Methods
+
+| Name | Description |
+| --- | --- |
+| [output](#water_tank.Reservoir.output) |  |
+| [step](#water_tank.Reservoir.step) | Performs one update of the internal variables. |
+
+### output { #water_tank.Reservoir.output }
+
+`Reservoir.output(self)`
+
+#### Returns
+
+| Type   | Description             |
+|--------|-------------------------|
+| None   | a vector of activities. |
+
+### step { #water_tank.Reservoir.step }
+
+`Reservoir.step(self)`
+
+Performs one update of the internal variables.

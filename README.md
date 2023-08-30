@@ -15,7 +15,7 @@ Water tanks are plastic reservoirs.
 ## Installation
 
 ```console
-pip install water-tank
+pip install git+https://github.com/vitay/water-tank.git@master
 ```
 
 ## License
