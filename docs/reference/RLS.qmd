@@ -1,5 +1,12 @@
 # RLS { #water_tank.RLS }
 
-`RLS(self, projection, delta)`
+`RLS(self, projection, delta=1e-06)`
 
 Recursive least-squares (RLS) learning rule for FORCE learning.
+
+## Parameters
+
+| Name         | Type       | Description                                       | Default    |
+|--------------|------------|---------------------------------------------------|------------|
+| `projection` | Projection | projection on which to apply the learning rule.   | _required_ |
+| `delta`      | float      | initial diagonal value of the correlation matrix. | `1e-06`    |

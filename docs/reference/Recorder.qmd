@@ -1,0 +1,54 @@
+# Recorder { #water_tank.Recorder }
+
+`Recorder(self)`
+
+Structure to record activities during a simulation.
+
+Example:
+
+```python
+recorder = Recorder()
+for t in range(1000):
+    # ...
+    recorder.record({
+        'rc': rc.output(), 
+        'readout': readout.output(),
+    })
+data = recorder.get()
+```
+
+## Methods
+
+| Name | Description |
+| --- | --- |
+| [clear](#water_tank.Recorder.clear) | Clears the data. |
+| [get](#water_tank.Recorder.get) |  |
+| [record](#water_tank.Recorder.record) | Accumulates the content of the dictionary. Keys are created if needed. |
+
+### clear { #water_tank.Recorder.clear }
+
+`Recorder.clear(self)`
+
+Clears the data.
+
+### get { #water_tank.Recorder.get }
+
+`Recorder.get(self)`
+
+#### Returns
+
+| Type   | Description                   |
+|--------|-------------------------------|
+| dict   | a dictionary of numpy arrays. |
+
+### record { #water_tank.Recorder.record }
+
+`Recorder.record(self, data)`
+
+Accumulates the content of the dictionary. Keys are created if needed.
+
+#### Parameters
+
+| Name   | Type   | Description                           | Default    |
+|--------|--------|---------------------------------------|------------|
+| `data` | dict   | dictionary of numpy arrays to record. | _required_ |

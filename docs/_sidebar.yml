@@ -23,5 +23,8 @@ website:
       - reference/Normal.qmd
       - reference/Bernouilli.qmd
       section: Random distributions
+    - contents:
+      - reference/Recorder.qmd
+      section: Utilities
     id: reference
   - id: dummy-sidebar

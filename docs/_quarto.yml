@@ -35,6 +35,7 @@ website:
       style: "docked"
       contents:
         - notebooks/MackeyGlass.ipynb
+        - notebooks/FORCE.ipynb
 
     - title: "API Reference"
       style: "docked"
@@ -97,3 +98,7 @@ quartodoc:
         - Uniform
         - Normal
         - Bernouilli
+    - title: Utilities
+      desc: Various tools to facilitate simulations. 
+      contents:
+        - Recorder

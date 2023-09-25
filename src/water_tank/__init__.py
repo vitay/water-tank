@@ -1,22 +1,8 @@
-# Time measurement
-from functools import wraps
-from time import time
 
-def measure(func):
-    @wraps(func)
-    def _time_it(*args, **kwargs):
-        start = int(round(time() * 1000))
-        try:
-            return func(*args, **kwargs)
-        finally:
-            end_ = int(round(time() * 1000)) - start
-            print(f"Execution time: {end_ if end_ > 0 else 0} ms")
-    return _time_it
-
-# Imports
-from .Layers import StaticInput, TimeSeriesInput, LinearReadout
-from .Reservoirs import RecurrentLayer
+from .Utils import measure
+from .Layers import StaticInput, TimeSeriesInput, LinearReadout, RecurrentLayer
+from .Reservoirs import ESN
 from .Projections import connect, DenseProjection, SparseProjection
 from .LearningRules import DeltaLearningRule, RLS
 from .RandomDistributions import Const, Uniform, Normal, Bernouilli
-from .Recorder import Recorder
+from .Recorders import Recorder

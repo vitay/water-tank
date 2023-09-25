@@ -27,7 +27,7 @@ Learning rules for online training of a projection.
 
 | | |
 | --- | --- |
-| [DeltaLearningRule](DeltaLearningRule.qmd#water_tank.DeltaLearningRule) |  |
+| [DeltaLearningRule](DeltaLearningRule.qmd#water_tank.DeltaLearningRule) | Delta learning rule (online linear regression). |
 | [RLS](RLS.qmd#water_tank.RLS) | Recursive least-squares (RLS) learning rule for FORCE learning. |
 
 ## Random distributions
@@ -40,3 +40,11 @@ Simple wrappers around numpy's random distributions.
 | [Uniform](Uniform.qmd#water_tank.Uniform) | Uniform distribution, returning values between `min` and `max`. |
 | [Normal](Normal.qmd#water_tank.Normal) | Normal distribution, returning values with a mean of `mean` and a standard deviation of `std`. |
 | [Bernouilli](Bernouilli.qmd#water_tank.Bernouilli) | Bernouilli (binomial) distribution, returning the first of the two values with probability $p$. |
+
+## Utilities
+
+Various tools to facilitate simulations.
+
+| | |
+| --- | --- |
+| [Recorder](Recorder.qmd#water_tank.Recorder) | Structure to record activities during a simulation. |

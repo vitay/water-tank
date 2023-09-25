@@ -1,60 +1,128 @@
 import numpy as np
 
-from .Projections import DenseProjection, SparseProjection
-from .RandomDistributions import RandomDistribution
-
-transfer_functions = {
-    'tanh': np.tanh
-}
-
-class RecurrentLayer(object):
-    r"""
-    Reservoir of recurrently connected neurons.
+from .Layers import StaticInput, RecurrentLayer, LinearReadout
+from .Projections import connect
+from .RandomDistributions import *
+from .LearningRules import RLS
+from .Recorders import Recorder
     
-    $$\tau \, \frac{d \mathbf{x}(t)}{dt} + \mathbf{x}(t) = W^\text{in} \times I(t) + W^\text{rec} \times \mathbf{r}(t) + W^\text{fb} \times \mathbf{z}(t)$$
-        
-    $$\mathbf{r}(t) = f(\mathbf{x}(t))$$
 
-
-    Parameters:
-        size: number of neurons.
-        tau: time constant.
-        transfer_function: transfer function.
+class ESN(object):
+    """
+    Standard Echo-State Network with plasticity in the readout weights. 
     """
 
-    def __init__(self, size:int, tau:float=10.0, transfer_function:str='tanh') -> None:
+    def __init__(self, 
+            N:int, 
+            N_in:int, 
+            N_out:int, 
+            g:float, 
+            tau:float, 
+            sparseness:float
+        ):
+        self.N = N
+        self.N_in = N_in
+        self.N_out = N_out
+
+        # Input population
+        self.inp = StaticInput(size=N_in)
+
+        # Reservoir 
+        self.reservoir = RecurrentLayer(size=N, tau=tau)
+
+        # Readout
+        self.readout = LinearReadout(size=N_out)
+
+        # Input projection
+        self.inp_reservoir = connect(
+            pre = self.inp, 
+            post = self.reservoir, 
+            weights = Bernouilli([-1.0, 1.0], p=0.5), 
+            bias = None,
+            sparseness = 0.1
+        )
+
+        # Recurrent projection
+        self.reservoir_reservoir = connect(
+            pre = self.reservoir, 
+            post = self.reservoir, 
+            weights = Normal(0.0, g/np.sqrt(sparseness*N)), 
+            bias = Bernouilli([-1.0, 1.0], p=0.5), # very important
+            sparseness = sparseness
+        )
+
+        # Readout projection
+        self.reservoir_readout = connect(
+            pre = self.reservoir, 
+            post = self.readout,
+            weights = Const(0.0),
+            bias = Const(0.0), # learnable bias
+            sparseness = 1.0 # readout should be dense
+        )
+
+        # Learning rules
+        self.learning_rule = RLS(projection=self.reservoir_readout, delta=1e-6)
+
+        # Recorder
+        self.recorder = Recorder()
+
+    def train(self, X, Y, warmup:int=0, record:bool=True):
+
+        for t, (x, y) in enumerate(zip(X, Y)): 
+
+            # Inputs/targets
+            self.inp.set(x)
+
+            # Steps 
+            self.reservoir.step() 
+            self.readout.step()
+
+            # Learning
+            if t >= warmup: 
+                self.learning_rule.step(error=y - self.readout.output())
+
+            # Recording
+            if record:
+                self.recorder.record({
+                    'reservoir': self.reservoir.output(), 
+                    'readout': self.readout.output(),
+                })
+
+    def force(self, X, Y, warmup:int=0, record:bool=True):
+
+        for t, (x, y) in enumerate(zip(X, Y)): 
+
+            # Inputs/targets
+            self.inp.set(x)
+
+            # Steps 
+            self.reservoir.step() 
+            self.readout.step()
+
+            # Learning
+            if t >= warmup: 
+                self.learning_rule.step(error= y - self.readout.output())
+
+            # Recording
+            if record:
+                self.recorder.record({
+                    'reservoir': self.reservoir.output(), 
+                    'readout': self.readout.output(),
+                })
         
-        self.size = size
-        self.tau = tau
-        self.transfer_function = transfer_functions[transfer_function]
+    def autoregressive(self, duration:int, record:bool=True):
 
-        # Vectors
-        self.x = np.zeros((self.size,))
-        self.r = np.zeros((self.size,))
+        for _ in range(duration): 
+            # Autoregressive input
+            self.inp.set(self.readout.output())  
 
-        # Projections
-        self.projections = []
+            # Steps 
+            self.reservoir.step() 
+            self.readout.step()
 
-    def output(self)  -> None:
-        """
-        Returns:
-            a vector of activities.
-        """
-        return self.r
-
-    def step(self) -> None:
-        """
-        Performs one update of the internal variables.
-        """
-
-        inputs = self._collect_inputs()
-        self.x += (inputs - self.x) / self.tau
-        self.r = self.transfer_function(self.x)
-
-    def _collect_inputs(self):
-
-        inp = np.zeros(self.size)
-        for proj in self.projections:
-            inp += proj.step().reshape((self.size,))
-        return inp
-    
+            # Recording
+            if record:
+                self.recorder.record({
+                    'reservoir': self.reservoir.output(), 
+                    'readout': self.readout.output()
+                })

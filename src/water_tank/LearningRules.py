@@ -3,8 +3,19 @@ import numpy as np
 from .Projections import Projection, SparseProjection
 
 class DeltaLearningRule(object):
+    r"""
+    Delta learning rule (online linear regression).
 
-    def __init__(self, projection, learning_rate):
+    Equation:
+
+    $$\Delta W = \eta \, (\mathbf{t} - \mathbf{y}) \times \mathbf{x}^T$$
+
+    Parameters:
+        projection: projection on which to apply the learning rule.
+        learning_rate: learning rate.
+    """
+
+    def __init__(self, projection:Projection, learning_rate:float):
 
         self.projection = projection
         self.learning_rate = learning_rate
@@ -40,10 +51,12 @@ class RLS(object):
     """
     Recursive least-squares (RLS) learning rule for FORCE learning.
 
-
+    Parameters:
+        projection: projection on which to apply the learning rule.
+        delta: initial diagonal value of the correlation matrix.
     """
 
-    def __init__(self, projection:Projection, delta:float) -> None:
+    def __init__(self, projection:Projection, delta:float=1e-6) -> None:
 
         self.projection = projection
         self.delta = delta
@@ -62,10 +75,7 @@ class RLS(object):
         ]
         
 
-    def step(self, target):
-
-        # Compute the error of the output neurons
-        error =  target - self.projection.post.output()
+    def step(self, error):
 
         # Apply the FORCE learning rule to the readout weights
         dW = []
@@ -74,6 +84,7 @@ class RLS(object):
         for i in range(self.nb_post):
 
             r = self.projection.input(i).reshape((-1, ))
+            
             if self._has_bias:
                 r = np.concatenate((r, np.ones((1, ))))
 
