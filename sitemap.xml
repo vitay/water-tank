@@ -2,94 +2,106 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://vitay.github.io/water-tank/reference/TimeSeriesInput.html</loc>
-    <lastmod>2023-08-30T07:51:54.161Z</lastmod>
+    <lastmod>2023-09-25T09:31:10.377Z</lastmod>
   </url>
   <url>
     <loc>https://vitay.github.io/water-tank/reference/Normal.html</loc>
-    <lastmod>2023-08-30T07:51:53.579Z</lastmod>
+    <lastmod>2023-09-25T09:31:09.775Z</lastmod>
   </url>
   <url>
     <loc>https://vitay.github.io/water-tank/reference/Uniform.html</loc>
-    <lastmod>2023-08-30T07:51:52.592Z</lastmod>
+    <lastmod>2023-09-25T09:31:08.762Z</lastmod>
   </url>
   <url>
     <loc>https://vitay.github.io/water-tank/reference/StaticInput.html</loc>
-    <lastmod>2023-08-30T07:51:51.949Z</lastmod>
+    <lastmod>2023-09-25T09:31:08.135Z</lastmod>
   </url>
   <url>
     <loc>https://vitay.github.io/water-tank/reference/DeltaLearningRule.html</loc>
-    <lastmod>2023-08-30T07:51:51.327Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vitay.github.io/water-tank/reference/index.html</loc>
-    <lastmod>2023-08-30T07:51:50.746Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vitay.github.io/water-tank/reference/RecurrentLayer.html</loc>
-    <lastmod>2023-08-30T07:51:50.143Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vitay.github.io/water-tank/reference/Bernouilli.html</loc>
-    <lastmod>2023-08-30T07:51:49.568Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vitay.github.io/water-tank/reference/connect.html</loc>
-    <lastmod>2023-08-30T07:51:48.995Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vitay.github.io/water-tank/reference/RLS.html</loc>
-    <lastmod>2023-08-30T07:51:48.375Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vitay.github.io/water-tank/notebooks/MackeyGlass.html</loc>
-    <lastmod>2023-08-30T07:51:47.822Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vitay.github.io/water-tank/index.html</loc>
-    <lastmod>2023-08-30T07:51:47.191Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vitay.github.io/water-tank/License.html</loc>
-    <lastmod>2023-08-30T07:51:47.483Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vitay.github.io/water-tank/reference/RandomDistributions.Uniform.html</loc>
-    <lastmod>2023-08-30T07:51:48.110Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vitay.github.io/water-tank/reference/LinearReadout.html</loc>
-    <lastmod>2023-08-30T07:51:48.691Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vitay.github.io/water-tank/reference/RandomDistributions.Const.html</loc>
-    <lastmod>2023-08-30T07:51:49.266Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vitay.github.io/water-tank/reference/RandomDistributions.Bernouilli.html</loc>
-    <lastmod>2023-08-30T07:51:49.841Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vitay.github.io/water-tank/reference/RandomDistributions.Normal.html</loc>
-    <lastmod>2023-08-30T07:51:50.414Z</lastmod>
+    <lastmod>2023-09-25T09:31:07.487Z</lastmod>
   </url>
   <url>
     <loc>https://vitay.github.io/water-tank/reference/Const.html</loc>
-    <lastmod>2023-08-30T07:51:51.047Z</lastmod>
+    <lastmod>2023-09-25T09:31:06.869Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vitay.github.io/water-tank/reference/RandomDistributions.Normal.html</loc>
+    <lastmod>2023-09-25T09:31:06.218Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vitay.github.io/water-tank/reference/RandomDistributions.Bernouilli.html</loc>
+    <lastmod>2023-09-25T09:31:05.617Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vitay.github.io/water-tank/reference/Bernouilli.html</loc>
+    <lastmod>2023-09-25T09:31:05.024Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vitay.github.io/water-tank/reference/connect.html</loc>
+    <lastmod>2023-09-25T09:31:04.429Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vitay.github.io/water-tank/reference/RLS.html</loc>
+    <lastmod>2023-09-25T09:31:03.796Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vitay.github.io/water-tank/notebooks/MackeyGlass.html</loc>
+    <lastmod>2023-09-25T09:31:03.199Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vitay.github.io/water-tank/License.html</loc>
+    <lastmod>2023-09-25T09:31:02.435Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vitay.github.io/water-tank/index.html</loc>
+    <lastmod>2023-09-25T09:31:02.124Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vitay.github.io/water-tank/notebooks/FORCE.html</loc>
+    <lastmod>2023-09-25T09:31:02.792Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vitay.github.io/water-tank/reference/RandomDistributions.Uniform.html</loc>
+    <lastmod>2023-09-25T09:31:03.506Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vitay.github.io/water-tank/reference/LinearReadout.html</loc>
+    <lastmod>2023-09-25T09:31:04.123Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vitay.github.io/water-tank/reference/RandomDistributions.Const.html</loc>
+    <lastmod>2023-09-25T09:31:04.714Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vitay.github.io/water-tank/reference/Recorder.Recorder.html</loc>
+    <lastmod>2023-09-25T09:31:05.324Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vitay.github.io/water-tank/reference/RecurrentLayer.html</loc>
+    <lastmod>2023-09-25T09:31:05.935Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vitay.github.io/water-tank/reference/index.html</loc>
+    <lastmod>2023-09-25T09:31:06.579Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vitay.github.io/water-tank/reference/Recorder.html</loc>
+    <lastmod>2023-09-25T09:31:07.195Z</lastmod>
   </url>
   <url>
     <loc>https://vitay.github.io/water-tank/reference/DenseProjection.html</loc>
-    <lastmod>2023-08-30T07:51:51.646Z</lastmod>
+    <lastmod>2023-09-25T09:31:07.820Z</lastmod>
   </url>
   <url>
     <loc>https://vitay.github.io/water-tank/reference/SparseProjection.html</loc>
-    <lastmod>2023-08-30T07:51:52.290Z</lastmod>
+    <lastmod>2023-09-25T09:31:08.465Z</lastmod>
   </url>
   <url>
     <loc>https://vitay.github.io/water-tank/reference/index.qmd.html</loc>
-    <lastmod>2023-08-30T07:51:53.282Z</lastmod>
+    <lastmod>2023-09-25T09:31:09.472Z</lastmod>
   </url>
   <url>
     <loc>https://vitay.github.io/water-tank/reference/Reservoir.html</loc>
-    <lastmod>2023-08-30T07:51:53.867Z</lastmod>
+    <lastmod>2023-09-25T09:31:10.063Z</lastmod>
   </url>
 </urlset>

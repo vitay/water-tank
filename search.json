@@ -88,63 +88,77 @@
     "href": "reference/DeltaLearningRule.html",
     "title": "DeltaLearningRule",
     "section": "",
-    "text": "DeltaLearningRule\nDeltaLearningRule(self, projection, learning_rate)"
+    "text": "DeltaLearningRule(self, projection, learning_rate)\nDelta learning rule (online linear regression).\nEquation:\n\\Delta W = \\eta \\, (\\mathbf{t} - \\mathbf{y}) \\times \\mathbf{x}^T\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nprojection\nProjection\nprojection on which to apply the learning rule.\nrequired\n\n\nlearning_rate\nfloat\nlearning rate.\nrequired"
   },
   {
-    "objectID": "reference/index.html",
-    "href": "reference/index.html",
-    "title": "API reference",
+    "objectID": "reference/DeltaLearningRule.html#parameters",
+    "href": "reference/DeltaLearningRule.html#parameters",
+    "title": "DeltaLearningRule",
     "section": "",
-    "text": "Layers available for inputs, reservoirs, readouts, etc.\n\n\n\nRecurrentLayer\nReservoir of recurrently connected neurons.\n\n\nLinearReadout\nLinear readout layer. Performs a weighted sum of its inputs, without dynamics.\n\n\nStaticInput\nStatic placeholder for input vectors.\n\n\nTimeSeriesInput\nDynamic placeholder for series of input vectors.\n\n\n\n\n\n\nConnecting layers with each other.\n\n\n\nconnect\nConnects two layers with a (sparse) weight matrix and optionally a bias vector.\n\n\nDenseProjection\nDense weight matrix. Created and returned by connect().\n\n\nSparseProjection\nSparse weight matrix. Created and returned by connect().\n\n\n\n\n\n\nLearning rules for online training of a projection.\n\n\n\nDeltaLearningRule\n\n\n\nRLS\nRecursive least-squares (RLS) learning rule for FORCE learning.\n\n\n\n\n\n\nSimple wrappers around numpy’s random distributions.\n\n\n\nConst\nConstant “random” distribution, returning the same value.\n\n\nUniform\nUniform distribution, returning values between min and max.\n\n\nNormal\nNormal distribution, returning values with a mean of mean and a standard deviation of std.\n\n\nBernouilli\nBernouilli (binomial) distribution, returning the first of the two values with probability p."
+    "text": "Name\nType\nDescription\nDefault\n\n\n\n\nprojection\nProjection\nprojection on which to apply the learning rule.\nrequired\n\n\nlearning_rate\nfloat\nlearning rate.\nrequired"
   },
   {
-    "objectID": "reference/index.html#layers",
-    "href": "reference/index.html#layers",
-    "title": "API reference",
+    "objectID": "reference/Const.html",
+    "href": "reference/Const.html",
+    "title": "Const",
     "section": "",
-    "text": "Layers available for inputs, reservoirs, readouts, etc.\n\n\n\nRecurrentLayer\nReservoir of recurrently connected neurons.\n\n\nLinearReadout\nLinear readout layer. Performs a weighted sum of its inputs, without dynamics.\n\n\nStaticInput\nStatic placeholder for input vectors.\n\n\nTimeSeriesInput\nDynamic placeholder for series of input vectors."
+    "text": "Const(self, value)\nConstant “random” distribution, returning the same value.\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nvalue\nfloat\nconstant value.\nrequired\n\n\n\n\n\n\n\n\n\nName\nDescription\n\n\n\n\nsample\nSamples from the distribution and returns an array of the desired shape.\n\n\n\n\n\nConst.sample(self, shape)\nSamples from the distribution and returns an array of the desired shape."
   },
   {
-    "objectID": "reference/index.html#projections",
-    "href": "reference/index.html#projections",
-    "title": "API reference",
+    "objectID": "reference/Const.html#parameters",
+    "href": "reference/Const.html#parameters",
+    "title": "Const",
     "section": "",
-    "text": "Connecting layers with each other.\n\n\n\nconnect\nConnects two layers with a (sparse) weight matrix and optionally a bias vector.\n\n\nDenseProjection\nDense weight matrix. Created and returned by connect().\n\n\nSparseProjection\nSparse weight matrix. Created and returned by connect()."
+    "text": "Name\nType\nDescription\nDefault\n\n\n\n\nvalue\nfloat\nconstant value.\nrequired"
   },
   {
-    "objectID": "reference/index.html#learning-rules",
-    "href": "reference/index.html#learning-rules",
-    "title": "API reference",
+    "objectID": "reference/Const.html#methods",
+    "href": "reference/Const.html#methods",
+    "title": "Const",
     "section": "",
-    "text": "Learning rules for online training of a projection.\n\n\n\nDeltaLearningRule\n\n\n\nRLS\nRecursive least-squares (RLS) learning rule for FORCE learning."
+    "text": "Name\nDescription\n\n\n\n\nsample\nSamples from the distribution and returns an array of the desired shape.\n\n\n\n\n\nConst.sample(self, shape)\nSamples from the distribution and returns an array of the desired shape."
   },
   {
-    "objectID": "reference/index.html#random-distributions",
-    "href": "reference/index.html#random-distributions",
-    "title": "API reference",
+    "objectID": "reference/RandomDistributions.Normal.html",
+    "href": "reference/RandomDistributions.Normal.html",
+    "title": "RandomDistributions.Normal",
     "section": "",
-    "text": "Simple wrappers around numpy’s random distributions.\n\n\n\nConst\nConstant “random” distribution, returning the same value.\n\n\nUniform\nUniform distribution, returning values between min and max.\n\n\nNormal\nNormal distribution, returning values with a mean of mean and a standard deviation of std.\n\n\nBernouilli\nBernouilli (binomial) distribution, returning the first of the two values with probability p."
+    "text": "RandomDistributions.Normal(self, mean, std)\nNormal distribution, returning values with a mean of mean and a standard deviation of std.\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nmean\nfloat\nmean.\nrequired\n\n\nstd\nfloat\nstandard deviation.\nrequired\n\n\n\n\n\n\n\n\n\nName\nDescription\n\n\n\n\nsample\nSamples from the distribution and returns an array of the desired shape.\n\n\n\n\n\nRandomDistributions.Normal.sample(self, shape)\nSamples from the distribution and returns an array of the desired shape."
   },
   {
-    "objectID": "reference/RecurrentLayer.html",
-    "href": "reference/RecurrentLayer.html",
-    "title": "RecurrentLayer",
+    "objectID": "reference/RandomDistributions.Normal.html#parameters",
+    "href": "reference/RandomDistributions.Normal.html#parameters",
+    "title": "RandomDistributions.Normal",
     "section": "",
-    "text": "RecurrentLayer(self, size, tau=10.0, transfer_function='tanh')\nReservoir of recurrently connected neurons.\n\\tau \\, \\frac{d \\mathbf{x}(t)}{dt} + \\mathbf{x}(t) = W^\\text{in} \\times I(t) + W^\\text{rec} \\times \\mathbf{r}(t) + W^\\text{fb} \\times \\mathbf{z}(t)\n\\mathbf{r}(t) = f(\\mathbf{x}(t))\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nsize\nint\nnumber of neurons.\nrequired\n\n\ntau\nfloat\ntime constant.\n10.0\n\n\ntransfer_function\nstr\ntransfer function.\n'tanh'\n\n\n\n\n\n\n\n\n\nName\nDescription\n\n\n\n\noutput\n\n\n\nstep\nPerforms one update of the internal variables.\n\n\n\n\n\nRecurrentLayer.output(self)\n\n\n\n\n\nType\nDescription\n\n\n\n\nNone\na vector of activities.\n\n\n\n\n\n\n\nRecurrentLayer.step(self)\nPerforms one update of the internal variables."
+    "text": "Name\nType\nDescription\nDefault\n\n\n\n\nmean\nfloat\nmean.\nrequired\n\n\nstd\nfloat\nstandard deviation.\nrequired"
   },
   {
-    "objectID": "reference/RecurrentLayer.html#parameters",
-    "href": "reference/RecurrentLayer.html#parameters",
-    "title": "RecurrentLayer",
+    "objectID": "reference/RandomDistributions.Normal.html#methods",
+    "href": "reference/RandomDistributions.Normal.html#methods",
+    "title": "RandomDistributions.Normal",
     "section": "",
-    "text": "Name\nType\nDescription\nDefault\n\n\n\n\nsize\nint\nnumber of neurons.\nrequired\n\n\ntau\nfloat\ntime constant.\n10.0\n\n\ntransfer_function\nstr\ntransfer function.\n'tanh'"
+    "text": "Name\nDescription\n\n\n\n\nsample\nSamples from the distribution and returns an array of the desired shape.\n\n\n\n\n\nRandomDistributions.Normal.sample(self, shape)\nSamples from the distribution and returns an array of the desired shape."
   },
   {
-    "objectID": "reference/RecurrentLayer.html#methods",
-    "href": "reference/RecurrentLayer.html#methods",
-    "title": "RecurrentLayer",
+    "objectID": "reference/RandomDistributions.Bernouilli.html",
+    "href": "reference/RandomDistributions.Bernouilli.html",
+    "title": "RandomDistributions.Bernouilli",
     "section": "",
-    "text": "Name\nDescription\n\n\n\n\noutput\n\n\n\nstep\nPerforms one update of the internal variables.\n\n\n\n\n\nRecurrentLayer.output(self)\n\n\n\n\n\nType\nDescription\n\n\n\n\nNone\na vector of activities.\n\n\n\n\n\n\n\nRecurrentLayer.step(self)\nPerforms one update of the internal variables."
+    "text": "RandomDistributions.Bernouilli(self, values, p=0.5)\nBernouilli (binomial) distribution, returning the first of the two values with probability p.\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nvalues\nlist\nlist of values.\nrequired\n\n\np\nfloat\nprobability of returning the first value.\n0.5\n\n\n\n\n\n\n\n\n\nName\nDescription\n\n\n\n\nsample\nSamples from the distribution and returns an array of the desired shape.\n\n\n\n\n\nRandomDistributions.Bernouilli.sample(self, shape)\nSamples from the distribution and returns an array of the desired shape."
+  },
+  {
+    "objectID": "reference/RandomDistributions.Bernouilli.html#parameters",
+    "href": "reference/RandomDistributions.Bernouilli.html#parameters",
+    "title": "RandomDistributions.Bernouilli",
+    "section": "",
+    "text": "Name\nType\nDescription\nDefault\n\n\n\n\nvalues\nlist\nlist of values.\nrequired\n\n\np\nfloat\nprobability of returning the first value.\n0.5"
+  },
+  {
+    "objectID": "reference/RandomDistributions.Bernouilli.html#methods",
+    "href": "reference/RandomDistributions.Bernouilli.html#methods",
+    "title": "RandomDistributions.Bernouilli",
+    "section": "",
+    "text": "Name\nDescription\n\n\n\n\nsample\nSamples from the distribution and returns an array of the desired shape.\n\n\n\n\n\nRandomDistributions.Bernouilli.sample(self, shape)\nSamples from the distribution and returns an array of the desired shape."
   },
   {
     "objectID": "reference/Bernouilli.html",
@@ -193,14 +207,28 @@
     "href": "reference/RLS.html",
     "title": "RLS",
     "section": "",
-    "text": "RLS\nRLS(self, projection, delta)\nRecursive least-squares (RLS) learning rule for FORCE learning."
+    "text": "RLS(self, projection, delta=1e-06)\nRecursive least-squares (RLS) learning rule for FORCE learning.\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nprojection\nProjection\nprojection on which to apply the learning rule.\nrequired\n\n\ndelta\nfloat\ninitial diagonal value of the correlation matrix.\n1e-06"
+  },
+  {
+    "objectID": "reference/RLS.html#parameters",
+    "href": "reference/RLS.html#parameters",
+    "title": "RLS",
+    "section": "",
+    "text": "Name\nType\nDescription\nDefault\n\n\n\n\nprojection\nProjection\nprojection on which to apply the learning rule.\nrequired\n\n\ndelta\nfloat\ninitial diagonal value of the correlation matrix.\n1e-06"
   },
   {
     "objectID": "notebooks/MackeyGlass.html",
     "href": "notebooks/MackeyGlass.html",
     "title": "Mackey-Glass autoregression",
     "section": "",
-    "text": "import numpy as np\nimport matplotlib.pyplot as plt\n\nimport water_tank as wt\n\n\nN_in = 1 # number of inputs\nN_out = 1 # number of outputs\nN = 200 # number of neurons\ng = 1.25 # scaling factor\ntau = 3.3 # time constant\nsparseness = 0.1 # sparseness of the recurrent weights\n\n\nclass RC(object):\n\n    def __init__(self, N, N_in, N_out, g, tau, sparseness):\n\n        # Input population\n        self.inp = wt.StaticInput(size=N_in)\n\n        # Reservoir \n        self.rc = wt.Reservoir(size=N, tau=tau)\n\n        # Readout\n        self.readout = wt.LinearReadout(size=N_out)\n\n        # Input projection\n        self.inp_proj = wt.connect(\n            pre=self.inp, \n            post=self.rc, \n            weights=wt.Bernouilli([-1.0, 1.0], p=0.5), \n            bias=wt.Bernouilli([-1.0, 1.0], p=0.5), # very important\n            sparseness=0.1\n        )\n\n        # Recurrent projection\n        self.rec_proj = wt.connect(\n            pre=self.rc, \n            post=self.rc, \n            weights=wt.Normal(0.0, g/np.sqrt(sparseness*N)), \n            bias=None,\n            sparseness=sparseness)\n\n        # Readout projection\n        self.readout_proj = wt.connect(\n            pre = self.rc, \n            post = self.readout,\n            weights = wt.Uniform(-0.01, 0.01), # very small but not zero\n            bias=wt.Const(0.0), # learnable bias\n            sparseness=1.0 # readout should be dense\n        )\n\n        # Feedback projection\n        #self.feedback_proj = wt.connect(self.readout, self.rc, wt.Uniform(-1.0, 1.0))\n\n        # Learning rules\n        #self.learningrule = wt.DeltaLearningRule(projection=self.readout_proj, learning_rate=0.01)\n        self.learningrule = wt.RLS(projection=self.readout_proj, delta=1e-6)\n\n        # Recorder\n        self.recorder = wt.Recorder()\n\n    @wt.measure\n    def train(self, X, Y, warmup=0):\n\n        for t, (x, y) in enumerate(zip(X, Y)): \n\n            # Inputs/targets\n            self.inp.set(x)\n\n            # Steps \n            self.rc.step() \n            self.readout.step()\n\n            # Learning\n            if t &gt;= warmup: self.learningrule.step(target=y)\n\n            # Recording\n            self.recorder.record({\n                'rc': self.rc.output(), \n                'readout': self.readout.output(),\n            })\n    \n    @wt.measure\n    def autoregressive(self, duration):\n\n        for _ in range(duration): \n            # Autoregressive input\n            self.inp.set(self.readout.output())  \n\n            # Steps \n            self.rc.step() \n            self.readout.step()\n\n            # Recording\n            self.recorder.record({\n                'rc': self.rc.output(), \n                'readout': self.readout.output()\n            })\n\n\nfrom reservoirpy.datasets import mackey_glass\n\n# Mackey-Glass chaotic time series\nT = 2000\nmg = mackey_glass(T)\nmg =  2.0 * (mg - mg.min()) / (mg.max() - mg.min()) - 1.0\nX = mg[:-1, 0]\nY = mg[1:, 0]\n\n\nnet = RC(N, N_in, N_out, g, tau, sparseness)\n\n# Training / test\nd_train = 500\nd_test = 1000\n\n# Supervised training\nnet.train(X[:d_train], Y[:d_train], warmup=0)\ndata_train = net.recorder.get()\n\n# Autoregressive test\nnet.autoregressive(duration=d_test)\ndata_test = net.recorder.get()\n\nExecution time: 716 ms\nExecution time: 27 ms\n\n\n\nplt.figure()\nplt.title(\"Autoregression\")\nplt.subplot(211)\nplt.plot(Y[:d_train], label='ground truth (training)')\nplt.plot(data_train['readout'][:, 0], label='prediction (training)')\nplt.plot(np.linspace(d_train, d_train+d_test, d_test), Y[d_train:d_train+d_test], label='ground truth (test)')\nplt.plot(np.linspace(d_train, d_train+d_test, d_test), data_test['readout'][:, 0], label='prediction (test)')\nplt.legend()\nplt.subplot(212)\nplt.plot(Y[:d_train+d_test] - np.concatenate((data_train['readout'][:, 0], data_test['readout'][:, 0])), label='error')\nplt.legend()\n\nplt.show()\n\n/var/folders/6w/6msx49ws7k13cc0bbys0tt4m0000gn/T/ipykernel_33855/2895089909.py:3: MatplotlibDeprecationWarning: Auto-removal of overlapping axes is deprecated since 3.6 and will be removed two minor releases later; explicitly call ax.remove() as needed.\n  plt.subplot(211)"
+    "text": "import numpy as np\nimport matplotlib.pyplot as plt\n\nimport water_tank as wt\n\nThe Mackey-Glass equations are delay differential equations that exhibit chaotic behavior, i.e. they cannot be predict accurately for a long period of time.\n\\frac{d x(t)}{dt} = \\beta \\, \\frac{x(t - \\tau)}{1 + x(t - \\tau)^n} - \\gamma \\, x(t)\nTo check this, we use reservoirpy (https://reservoirpy.readthedocs.io) to generate two time series with very close initial conditions (\\epsilon = 10^{-6}). After roughly two seconds of simulation, the two time series start to diverge.\n\nfrom reservoirpy.datasets import mackey_glass\n\nmg1 = mackey_glass(4000, x0=1.2)\nmg2 = mackey_glass(4000, x0=1.2 + 1e-6)\n\nplt.figure(figsize=(12, 7))\nplt.plot(mg1, label=\"first\")\nplt.plot(mg2, label=\"second\")\nplt.plot(mg1 - mg2, label=\"difference\")\nplt.legend()\nplt.xlabel(\"Time (ms)\")\nplt.title(\"Mackey-Glass time series\")\nplt.show()\n\n\n\n\nFor the autoregression task, we generate a time series, normalize it and create supervised targets to predict the value of the signal at time t + 1 given the past.\n\n# Generate time series\nmg = mackey_glass(4000, x0=1.2)\n\n# Normalize between -1 and 1\nmg =  2.0 * (mg - mg.min()) / (mg.max() - mg.min()) - 1.0\n\n# The task is to predict the next value\nX = mg[:-1, 0]\nY = mg[1:, 0]\n\nplt.figure(figsize=(12, 7))\nplt.plot(X)\nplt.xlabel(\"Time (ms)\")\nplt.title(\"Mackey-Glass time series\")\nplt.show()\n\n\n\n\nWe now create an echo-state network with:\n\nan input layer with one neuron\na reservoir with N tanh neurons.\na readout layer with one neuron.\n\nThe weight matrices are initialized classically. Note that the recurrent and readout neurons both use biases. The readout weights are trained online using the recursive least squares (RLS) method.\nTwo methods are implemented in the class: a training method calling the learning rule, and an autoregressive method plugging the output of the networks back into its input.\n\nclass ESN(object):\n\n    def __init__(self, N, N_in, N_out, g, tau, sparseness):\n\n        # Input population\n        self.inp = wt.StaticInput(size=N_in)\n\n        # Reservoir \n        self.rc = wt.RecurrentLayer(size=N, tau=tau)\n\n        # Readout\n        self.readout = wt.LinearReadout(size=N_out)\n\n        # Input projection\n        self.inp_proj = wt.connect(\n            pre = self.inp, \n            post = self.rc, \n            weights = wt.Bernouilli([-1.0, 1.0], p=0.5), \n            bias = None,\n            sparseness = 0.1\n        )\n\n        # Recurrent projection\n        self.rec_proj = wt.connect(\n            pre = self.rc, \n            post = self.rc, \n            weights = wt.Normal(0.0, g/np.sqrt(sparseness*N)), \n            bias = wt.Bernouilli([-1.0, 1.0], p=0.5), # very important\n            sparseness = sparseness\n        )\n\n        # Readout projection\n        self.readout_proj = wt.connect(\n            pre = self.rc, \n            post = self.readout,\n            weights = wt.Const(0.0),\n            bias = wt.Const(0.0), # learnable bias\n            sparseness = 1.0 # readout should be dense\n        )\n\n        # Learning rules\n        self.learningrule = wt.RLS(projection=self.readout_proj, delta=1e-6)\n\n        # Recorder\n        self.recorder = wt.Recorder()\n\n    @wt.measure\n    def train(self, X, Y, warmup=0):\n\n        for t, (x, y) in enumerate(zip(X, Y)): \n\n            # Inputs/targets\n            self.inp.set(x)\n\n            # Steps \n            self.rc.step() \n            self.readout.step()\n\n            # Learning\n            if t &gt;= warmup: self.learningrule.step(error=y - self.readout.output())\n\n            # Recording\n            self.recorder.record({\n                'rc': self.rc.output(), \n                'readout': self.readout.output(),\n            })\n    \n    @wt.measure\n    def autoregressive(self, duration):\n\n        for _ in range(duration): \n            # Autoregressive input\n            self.inp.set(self.readout.output())  \n\n            # Steps \n            self.rc.step() \n            self.readout.step()\n\n            # Recording\n            self.recorder.record({\n                'rc': self.rc.output(), \n                'readout': self.readout.output()\n            })\n\n\nN_in = 1 # number of inputs\nN_out = 1 # number of outputs\nN = 200 # number of neurons\ng = 1.25 # scaling factor\ntau = 3.3 # time constant\nsparseness = 0.1 # sparseness of the recurrent weights\n\nnet = ESN(N, N_in, N_out, g, tau, sparseness)\n\nWe train the reservoir for 500 time steps and let it predict the signal autoregressively for 1000 steps.\n\n# Training / test\nd_train = 500\nd_test = 1000\n\n# Supervised training\nnet.train(X[:d_train], Y[:d_train], warmup=0)\n\n# Autoregressive test\nnet.autoregressive(duration=d_test)\n\ndata = net.recorder.get()\n\nExecution time: 269 ms\nExecution time: 25 ms\n\n\nThe training error becomes quickly very small. When predicting the time series autoregressively, the predictions are precise for around 200 steps, before starting to diverge.\n\nplt.figure(figsize=(12, 7))\nplt.title(\"Autoregression\")\nplt.subplot(211)\nplt.plot(Y[:d_train+d_test], label='ground truth')\nplt.plot(data['readout'][:d_train, 0], label='prediction (training)')\nplt.plot(np.linspace(d_train, d_train+d_test, d_test), data['readout'][d_train:, 0], label='prediction (test)')\nplt.legend()\nplt.subplot(212)\nplt.plot(Y[:d_train+d_test] - data['readout'][:, 0], label='error')\nplt.legend()\nplt.show()\n\n/var/folders/6w/6msx49ws7k13cc0bbys0tt4m0000gn/T/ipykernel_23790/287914352.py:3: MatplotlibDeprecationWarning: Auto-removal of overlapping axes is deprecated since 3.6 and will be removed two minor releases later; explicitly call ax.remove() as needed.\n  plt.subplot(211)\n\n\n\n\n\nIt is interesting to note that, for the autoregression to work correctly, the input biases are critical. They have the effect that many reservoir neurons are saturated (+1 or -1) and only a few are in the “useful” region and change their sign.\n\nplt.figure(figsize=(12, 7))\nplt.title(\"Reservoir activity\")\nfor i in range(10):\n    plt.plot(data['rc'][:, i])\nplt.show()\n\n\n\n\n\nmean_act = data['rc'].mean(axis=0)\n\nplt.figure(figsize=(12, 7))\nplt.title(\"Mean neural activity during the training phase\")\nplt.hist(mean_act)\nplt.show()\n\n\n\n\nWhen plotting the readout weights after training, we can see that saturated neurons whose activity is very close to +1 or -1 throughout learning tend to get smaller readout weights. This is an effect of the inverse correlation matrix used in RLS: if the pre neuron is not significantly active, it should not participate to the output.\n\nplt.figure(figsize=(12, 7))\nplt.scatter(np.abs(mean_act), np.abs(net.readout_proj.W[0, :]))\nplt.xlabel(\"Absolute activity\")\nplt.ylabel(\"Absolute weight\")\nplt.show()"
+  },
+  {
+    "objectID": "License.html",
+    "href": "License.html",
+    "title": "License",
+    "section": "",
+    "text": "License\n\nMIT License\nCopyright (c) 2023-present Julien Vitay julien.vitay@informatik.tu-chemnitz.de\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
   },
   {
     "objectID": "index.html",
@@ -224,11 +252,11 @@
     "text": "water-tank is distributed under the terms of the MIT license."
   },
   {
-    "objectID": "License.html",
-    "href": "License.html",
-    "title": "License",
+    "objectID": "notebooks/FORCE.html",
+    "href": "notebooks/FORCE.html",
+    "title": "FORCE learning of the readout weights",
     "section": "",
-    "text": "License\n\nMIT License\nCopyright (c) 2023-present Julien Vitay julien.vitay@informatik.tu-chemnitz.de\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+    "text": "import numpy as np\nimport matplotlib.pyplot as plt\n\nimport water_tank as wt\n\nLet’s first generate the Mackey-Glass data:\n\nfrom reservoirpy.datasets import mackey_glass\n\n# Generate time series\nmg = mackey_glass(4000, x0=1.2)\n\n# Normalize between -1 and 1\nmg =  2.0 * (mg - mg.min()) / (mg.max() - mg.min()) - 1.0\n\n# The task is to predict the next value\nX = mg[:-1, 0]\nY = mg[1:, 0]\n\nplt.figure(figsize=(12, 7))\nplt.plot(X)\nplt.xlabel(\"Time (ms)\")\nplt.title(\"Mackey-Glass time series\")\nplt.show()\n\n\n\n\nTo implement FORCE learning, we create an echo-state network with:\n\na reservoir with N tanh neurons.\na readout layer with one neuron, with feedback to the reservoir.\n\nThe weight matrices are initialized classically.\nThe readout weights are trained online using the recursive least squares (RLS) method as before.\n\nclass ESN(object):\n\n    def __init__(self, N, N_out, g, tau, sparseness):\n\n        # Reservoir \n        self.rc = wt.RecurrentLayer(size=N, tau=tau)\n\n        # Readout\n        self.readout = wt.LinearReadout(size=N_out)\n\n        # Recurrent projection\n        self.rec_proj = wt.connect(\n            pre = self.rc, \n            post = self.rc, \n            weights = wt.Normal(0.0, g/np.sqrt(sparseness*N)), \n            bias = wt.Bernouilli([-1.0, 1.0], p=0.5),\n            sparseness = sparseness)\n\n        # Readout projection\n        self.readout_proj = wt.connect(\n            pre = self.rc, \n            post = self.readout,\n            weights = wt.Const(0.0),\n            bias = wt.Const(0.0), # learnable bias\n            sparseness = 1.0 # readout should be dense\n        )\n\n        # Feedback projection\n        self.feedback_proj = wt.connect(self.readout, self.rc, wt.Uniform(-1.0, 1.0))\n\n        # Learning rules\n        self.learningrule = wt.RLS(projection=self.readout_proj, delta=1e-6)\n\n        # Recorder\n        self.recorder = wt.Recorder()\n\n    @wt.measure\n    def train(self, X, warmup=0):\n\n        for t, x in enumerate(X): \n\n            # Steps \n            self.rc.step() \n            self.readout.step()\n\n            # Learning\n            if t &gt;= warmup: self.learningrule.step(error= np.array([x]) - self.readout.output())\n\n            # Recording\n            self.recorder.record({\n                'rc': self.rc.output(), \n                'readout': self.readout.output(),\n            })\n    \n    @wt.measure\n    def autoregressive(self, duration):\n\n        for _ in range(duration): \n\n            # Steps \n            self.rc.step() \n            self.readout.step()\n\n            # Recording\n            self.recorder.record({\n                'rc': self.rc.output(), \n                'readout': self.readout.output()\n            })\n\n\nN_out = 1 # number of outputs\nN = 200 # number of neurons\ng = 1.25 # scaling factor\ntau = 3.3 # time constant\nsparseness = 0.1 # sparseness of the recurrent weights\n\nnet = ESN(N, N_out, g, tau, sparseness)\n\nWe train the reservoir for 500 time steps and let it predict the signal autoregressively for 1000 steps.\n\n# Training / test\nd_train = 500\nd_test = 1000\n\n# Supervised training\nnet.train(X[:d_train], warmup=0)\n\n# Autoregressive test\nnet.autoregressive(duration=d_test)\n\ndata = net.recorder.get()\n\nExecution time: 350 ms\nExecution time: 20 ms\n\n\nThe performance is quite comparable to the supervised RLS rule.\n\nplt.figure(figsize=(12, 7))\nplt.title(\"Autoregression\")\nplt.subplot(211)\nplt.plot(Y[:d_train+d_test], label='ground truth')\nplt.plot(data['readout'][:d_train, 0], label='prediction (training)')\nplt.plot(np.linspace(d_train, d_train+d_test, d_test), data['readout'][d_train:, 0], label='prediction (test)')\nplt.legend()\nplt.subplot(212)\nplt.plot(Y[:d_train+d_test] - data['readout'][:, 0], label='error')\nplt.legend()\n\nplt.show()\n\n/var/folders/6w/6msx49ws7k13cc0bbys0tt4m0000gn/T/ipykernel_23884/287914352.py:3: MatplotlibDeprecationWarning: Auto-removal of overlapping axes is deprecated since 3.6 and will be removed two minor releases later; explicitly call ax.remove() as needed.\n  plt.subplot(211)"
   },
   {
     "objectID": "reference/RandomDistributions.Uniform.html",
@@ -294,67 +322,95 @@
     "text": "Name\nDescription\n\n\n\n\nsample\nSamples from the distribution and returns an array of the desired shape.\n\n\n\n\n\nRandomDistributions.Const.sample(self, shape)\nSamples from the distribution and returns an array of the desired shape."
   },
   {
-    "objectID": "reference/RandomDistributions.Bernouilli.html",
-    "href": "reference/RandomDistributions.Bernouilli.html",
-    "title": "RandomDistributions.Bernouilli",
+    "objectID": "reference/Recorder.Recorder.html",
+    "href": "reference/Recorder.Recorder.html",
+    "title": "Recorder.Recorder",
     "section": "",
-    "text": "RandomDistributions.Bernouilli(self, values, p=0.5)\nBernouilli (binomial) distribution, returning the first of the two values with probability p.\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nvalues\nlist\nlist of values.\nrequired\n\n\np\nfloat\nprobability of returning the first value.\n0.5\n\n\n\n\n\n\n\n\n\nName\nDescription\n\n\n\n\nsample\nSamples from the distribution and returns an array of the desired shape.\n\n\n\n\n\nRandomDistributions.Bernouilli.sample(self, shape)\nSamples from the distribution and returns an array of the desired shape."
+    "text": "Recorder.Recorder(self)\nStructure to record activities during a simulation.\nExample:\nrecorder = Recorder()\nfor t in range(1000):\n    # ...\n    recorder.record({\n        'rc': rc.output(), \n        'readout': readout.output(),\n    })\ndata = recorder.get()\n\n\n\n\n\nName\nDescription\n\n\n\n\nclear\nClears the data.\n\n\nget\n\n\n\nrecord\nAccumulates the content of the dictionary. Keys are created if needed.\n\n\n\n\n\nRecorder.Recorder.clear(self)\nClears the data.\n\n\n\nRecorder.Recorder.get(self)\n\n\n\n\n\nType\nDescription\n\n\n\n\ndict\na dictionary of numpy arrays.\n\n\n\n\n\n\n\nRecorder.Recorder.record(self, data)\nAccumulates the content of the dictionary. Keys are created if needed.\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndata\ndict\ndictionary of numpy arrays to record.\nrequired"
   },
   {
-    "objectID": "reference/RandomDistributions.Bernouilli.html#parameters",
-    "href": "reference/RandomDistributions.Bernouilli.html#parameters",
-    "title": "RandomDistributions.Bernouilli",
+    "objectID": "reference/Recorder.Recorder.html#methods",
+    "href": "reference/Recorder.Recorder.html#methods",
+    "title": "Recorder.Recorder",
     "section": "",
-    "text": "Name\nType\nDescription\nDefault\n\n\n\n\nvalues\nlist\nlist of values.\nrequired\n\n\np\nfloat\nprobability of returning the first value.\n0.5"
+    "text": "Name\nDescription\n\n\n\n\nclear\nClears the data.\n\n\nget\n\n\n\nrecord\nAccumulates the content of the dictionary. Keys are created if needed.\n\n\n\n\n\nRecorder.Recorder.clear(self)\nClears the data.\n\n\n\nRecorder.Recorder.get(self)\n\n\n\n\n\nType\nDescription\n\n\n\n\ndict\na dictionary of numpy arrays.\n\n\n\n\n\n\n\nRecorder.Recorder.record(self, data)\nAccumulates the content of the dictionary. Keys are created if needed.\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndata\ndict\ndictionary of numpy arrays to record.\nrequired"
   },
   {
-    "objectID": "reference/RandomDistributions.Bernouilli.html#methods",
-    "href": "reference/RandomDistributions.Bernouilli.html#methods",
-    "title": "RandomDistributions.Bernouilli",
+    "objectID": "reference/RecurrentLayer.html",
+    "href": "reference/RecurrentLayer.html",
+    "title": "RecurrentLayer",
     "section": "",
-    "text": "Name\nDescription\n\n\n\n\nsample\nSamples from the distribution and returns an array of the desired shape.\n\n\n\n\n\nRandomDistributions.Bernouilli.sample(self, shape)\nSamples from the distribution and returns an array of the desired shape."
+    "text": "RecurrentLayer(self, size, tau=10.0, transfer_function='tanh')\nReservoir of recurrently connected neurons.\n\\tau \\, \\frac{d \\mathbf{x}(t)}{dt} + \\mathbf{x}(t) = W^\\text{in} \\times I(t) + W^\\text{rec} \\times \\mathbf{r}(t) + W^\\text{fb} \\times \\mathbf{z}(t)\n\\mathbf{r}(t) = f(\\mathbf{x}(t))\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nsize\nint\nnumber of neurons.\nrequired\n\n\ntau\nfloat\ntime constant.\n10.0\n\n\ntransfer_function\nstr\ntransfer function.\n'tanh'\n\n\n\n\n\n\n\n\n\nName\nDescription\n\n\n\n\noutput\n\n\n\nstep\nPerforms one update of the internal variables.\n\n\n\n\n\nRecurrentLayer.output(self)\n\n\n\n\n\nType\nDescription\n\n\n\n\nNone\na vector of activities.\n\n\n\n\n\n\n\nRecurrentLayer.step(self)\nPerforms one update of the internal variables."
   },
   {
-    "objectID": "reference/RandomDistributions.Normal.html",
-    "href": "reference/RandomDistributions.Normal.html",
-    "title": "RandomDistributions.Normal",
+    "objectID": "reference/RecurrentLayer.html#parameters",
+    "href": "reference/RecurrentLayer.html#parameters",
+    "title": "RecurrentLayer",
     "section": "",
-    "text": "RandomDistributions.Normal(self, mean, std)\nNormal distribution, returning values with a mean of mean and a standard deviation of std.\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nmean\nfloat\nmean.\nrequired\n\n\nstd\nfloat\nstandard deviation.\nrequired\n\n\n\n\n\n\n\n\n\nName\nDescription\n\n\n\n\nsample\nSamples from the distribution and returns an array of the desired shape.\n\n\n\n\n\nRandomDistributions.Normal.sample(self, shape)\nSamples from the distribution and returns an array of the desired shape."
+    "text": "Name\nType\nDescription\nDefault\n\n\n\n\nsize\nint\nnumber of neurons.\nrequired\n\n\ntau\nfloat\ntime constant.\n10.0\n\n\ntransfer_function\nstr\ntransfer function.\n'tanh'"
   },
   {
-    "objectID": "reference/RandomDistributions.Normal.html#parameters",
-    "href": "reference/RandomDistributions.Normal.html#parameters",
-    "title": "RandomDistributions.Normal",
+    "objectID": "reference/RecurrentLayer.html#methods",
+    "href": "reference/RecurrentLayer.html#methods",
+    "title": "RecurrentLayer",
     "section": "",
-    "text": "Name\nType\nDescription\nDefault\n\n\n\n\nmean\nfloat\nmean.\nrequired\n\n\nstd\nfloat\nstandard deviation.\nrequired"
+    "text": "Name\nDescription\n\n\n\n\noutput\n\n\n\nstep\nPerforms one update of the internal variables.\n\n\n\n\n\nRecurrentLayer.output(self)\n\n\n\n\n\nType\nDescription\n\n\n\n\nNone\na vector of activities.\n\n\n\n\n\n\n\nRecurrentLayer.step(self)\nPerforms one update of the internal variables."
   },
   {
-    "objectID": "reference/RandomDistributions.Normal.html#methods",
-    "href": "reference/RandomDistributions.Normal.html#methods",
-    "title": "RandomDistributions.Normal",
+    "objectID": "reference/index.html",
+    "href": "reference/index.html",
+    "title": "API reference",
     "section": "",
-    "text": "Name\nDescription\n\n\n\n\nsample\nSamples from the distribution and returns an array of the desired shape.\n\n\n\n\n\nRandomDistributions.Normal.sample(self, shape)\nSamples from the distribution and returns an array of the desired shape."
+    "text": "Layers available for inputs, reservoirs, readouts, etc.\n\n\n\nRecurrentLayer\nReservoir of recurrently connected neurons.\n\n\nLinearReadout\nLinear readout layer. Performs a weighted sum of its inputs, without dynamics.\n\n\nStaticInput\nStatic placeholder for input vectors.\n\n\nTimeSeriesInput\nDynamic placeholder for series of input vectors.\n\n\n\n\n\n\nConnecting layers with each other.\n\n\n\nconnect\nConnects two layers with a (sparse) weight matrix and optionally a bias vector.\n\n\nDenseProjection\nDense weight matrix. Created and returned by connect().\n\n\nSparseProjection\nSparse weight matrix. Created and returned by connect().\n\n\n\n\n\n\nLearning rules for online training of a projection.\n\n\n\nDeltaLearningRule\nDelta learning rule (online linear regression).\n\n\nRLS\nRecursive least-squares (RLS) learning rule for FORCE learning.\n\n\n\n\n\n\nSimple wrappers around numpy’s random distributions.\n\n\n\nConst\nConstant “random” distribution, returning the same value.\n\n\nUniform\nUniform distribution, returning values between min and max.\n\n\nNormal\nNormal distribution, returning values with a mean of mean and a standard deviation of std.\n\n\nBernouilli\nBernouilli (binomial) distribution, returning the first of the two values with probability p.\n\n\n\n\n\n\nVarious tools to facilitate simulations.\n\n\n\nRecorder\nStructure to record activities during a simulation."
   },
   {
-    "objectID": "reference/Const.html",
-    "href": "reference/Const.html",
-    "title": "Const",
+    "objectID": "reference/index.html#layers",
+    "href": "reference/index.html#layers",
+    "title": "API reference",
     "section": "",
-    "text": "Const(self, value)\nConstant “random” distribution, returning the same value.\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nvalue\nfloat\nconstant value.\nrequired\n\n\n\n\n\n\n\n\n\nName\nDescription\n\n\n\n\nsample\nSamples from the distribution and returns an array of the desired shape.\n\n\n\n\n\nConst.sample(self, shape)\nSamples from the distribution and returns an array of the desired shape."
+    "text": "Layers available for inputs, reservoirs, readouts, etc.\n\n\n\nRecurrentLayer\nReservoir of recurrently connected neurons.\n\n\nLinearReadout\nLinear readout layer. Performs a weighted sum of its inputs, without dynamics.\n\n\nStaticInput\nStatic placeholder for input vectors.\n\n\nTimeSeriesInput\nDynamic placeholder for series of input vectors."
   },
   {
-    "objectID": "reference/Const.html#parameters",
-    "href": "reference/Const.html#parameters",
-    "title": "Const",
+    "objectID": "reference/index.html#projections",
+    "href": "reference/index.html#projections",
+    "title": "API reference",
     "section": "",
-    "text": "Name\nType\nDescription\nDefault\n\n\n\n\nvalue\nfloat\nconstant value.\nrequired"
+    "text": "Connecting layers with each other.\n\n\n\nconnect\nConnects two layers with a (sparse) weight matrix and optionally a bias vector.\n\n\nDenseProjection\nDense weight matrix. Created and returned by connect().\n\n\nSparseProjection\nSparse weight matrix. Created and returned by connect()."
   },
   {
-    "objectID": "reference/Const.html#methods",
-    "href": "reference/Const.html#methods",
-    "title": "Const",
+    "objectID": "reference/index.html#learning-rules",
+    "href": "reference/index.html#learning-rules",
+    "title": "API reference",
     "section": "",
-    "text": "Name\nDescription\n\n\n\n\nsample\nSamples from the distribution and returns an array of the desired shape.\n\n\n\n\n\nConst.sample(self, shape)\nSamples from the distribution and returns an array of the desired shape."
+    "text": "Learning rules for online training of a projection.\n\n\n\nDeltaLearningRule\nDelta learning rule (online linear regression).\n\n\nRLS\nRecursive least-squares (RLS) learning rule for FORCE learning."
+  },
+  {
+    "objectID": "reference/index.html#random-distributions",
+    "href": "reference/index.html#random-distributions",
+    "title": "API reference",
+    "section": "",
+    "text": "Simple wrappers around numpy’s random distributions.\n\n\n\nConst\nConstant “random” distribution, returning the same value.\n\n\nUniform\nUniform distribution, returning values between min and max.\n\n\nNormal\nNormal distribution, returning values with a mean of mean and a standard deviation of std.\n\n\nBernouilli\nBernouilli (binomial) distribution, returning the first of the two values with probability p."
+  },
+  {
+    "objectID": "reference/index.html#utilities",
+    "href": "reference/index.html#utilities",
+    "title": "API reference",
+    "section": "",
+    "text": "Various tools to facilitate simulations.\n\n\n\nRecorder\nStructure to record activities during a simulation."
+  },
+  {
+    "objectID": "reference/Recorder.html",
+    "href": "reference/Recorder.html",
+    "title": "Recorder",
+    "section": "",
+    "text": "Recorder(self)\nStructure to record activities during a simulation.\nExample:\nrecorder = Recorder()\nfor t in range(1000):\n    # ...\n    recorder.record({\n        'rc': rc.output(), \n        'readout': readout.output(),\n    })\ndata = recorder.get()\n\n\n\n\n\nName\nDescription\n\n\n\n\nclear\nClears the data.\n\n\nget\n\n\n\nrecord\nAccumulates the content of the dictionary. Keys are created if needed.\n\n\n\n\n\nRecorder.clear(self)\nClears the data.\n\n\n\nRecorder.get(self)\n\n\n\n\n\nType\nDescription\n\n\n\n\ndict\na dictionary of numpy arrays.\n\n\n\n\n\n\n\nRecorder.record(self, data)\nAccumulates the content of the dictionary. Keys are created if needed.\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndata\ndict\ndictionary of numpy arrays to record.\nrequired"
+  },
+  {
+    "objectID": "reference/Recorder.html#methods",
+    "href": "reference/Recorder.html#methods",
+    "title": "Recorder",
+    "section": "",
+    "text": "Name\nDescription\n\n\n\n\nclear\nClears the data.\n\n\nget\n\n\n\nrecord\nAccumulates the content of the dictionary. Keys are created if needed.\n\n\n\n\n\nRecorder.clear(self)\nClears the data.\n\n\n\nRecorder.get(self)\n\n\n\n\n\nType\nDescription\n\n\n\n\ndict\na dictionary of numpy arrays.\n\n\n\n\n\n\n\nRecorder.record(self, data)\nAccumulates the content of the dictionary. Keys are created if needed.\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ndata\ndict\ndictionary of numpy arrays to record.\nrequired"
   },
   {
     "objectID": "reference/DenseProjection.html",

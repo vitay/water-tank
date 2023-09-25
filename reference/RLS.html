@@ -253,6 +253,23 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Utilities</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/Recorder.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Recorder</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -263,7 +280,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#water_tank.RLS" id="toc-water_tank.RLS" class="nav-link active" data-scroll-target="#water_tank.RLS">RLS</a></li>
+  <li><a href="#water_tank.RLS" id="toc-water_tank.RLS" class="nav-link active" data-scroll-target="#water_tank.RLS">RLS</a>
+  <ul class="collapse">
+  <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters">Parameters</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -274,10 +294,43 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="water_tank.RLS" class="level1">
 <h1>RLS</h1>
-<p><code>RLS(self, projection, delta)</code></p>
+<p><code>RLS(self, projection, delta=1e-06)</code></p>
 <p>Recursive least-squares (RLS) learning rule for FORCE learning.</p>
+<section id="parameters" class="level2">
+<h2 class="anchored" data-anchor-id="parameters">Parameters</h2>
+<table class="table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 13%">
+<col style="width: 57%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>projection</code></td>
+<td>Projection</td>
+<td>projection on which to apply the learning rule.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td><code>delta</code></td>
+<td>float</td>
+<td>initial diagonal value of the correlation matrix.</td>
+<td><code>1e-06</code></td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
