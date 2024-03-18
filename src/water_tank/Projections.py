@@ -135,7 +135,7 @@ class DenseProjection(Projection):
         """
         return np.zeros(self.W.shape)
     
-    def _save(self):
+    def save(self):
         """
         Returns a dictionary of learnable parameters.
         """
@@ -144,6 +144,16 @@ class DenseProjection(Projection):
             'W': self.W,
             'bias': self.bias if self._has_bias else None,
         }
+
+    def load(self, data: dict) -> None:
+        """
+        Loads a dictionary of learnable parameters.
+        """
+        self.W = np.array(data['W'])
+        self.bias = np.array(data['bias'])
+        self._has_bias = False if self.bias is None or False else True
+
+
 
 class SparseProjection(Projection):
     """
@@ -195,8 +205,8 @@ class SparseProjection(Projection):
         elif isinstance(weights, (sp.sparray,)):
             self.W = weights
         
-        self.nb_weights = np.diff(self.W.indptr)
-        self.connectivity = np.split(self.W.indices, self.W.indptr)[1:-1]
+        # Analyze weight matrix
+        self._analyze_W()
 
         # Bias
         self._has_bias = True
@@ -212,6 +222,12 @@ class SparseProjection(Projection):
         else: # bias=True works
             self.bias = np.zeros(self.post.size)
             
+    def _analyze_W(self) -> None :
+
+        self.nb_weights = np.diff(self.W.indptr)
+        self.connectivity = np.split(self.W.indices, self.W.indptr)[1:-1]
+
+
     def nb_connections(self, idx)  -> int:
         """
         Returns:
@@ -259,7 +275,7 @@ class SparseProjection(Projection):
         return 0.0 * self.W.copy()
     
 
-    def _save(self) -> dict:
+    def save(self) -> dict:
         """
         Returns a dictionary of learnable parameters.
         """
@@ -268,3 +284,12 @@ class SparseProjection(Projection):
             'W': self.W,
             'bias': self.bias if self._has_bias else None,
         }
+
+    def load(self, data: dict) -> None:
+        """
+        Loads a dictionary of learnable parameters.
+        """
+        self.W = data['W']
+        self._analyze_W()
+        self.bias = data['bias']
+        self._has_bias = False if self.bias is None or False else True
