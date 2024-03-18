@@ -8,16 +8,18 @@ Project-URL: Issues, https://github.com/vitay/water-tank/issues
 Project-URL: Source, https://github.com/vitay/water-tank
 Classifier: Development Status :: 4 - Beta
 Classifier: Programming Language :: Python
-Classifier: Programming Language :: Python :: 3.7
 Classifier: Programming Language :: Python :: 3.8
 Classifier: Programming Language :: Python :: 3.9
 Classifier: Programming Language :: Python :: 3.10
 Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
 Classifier: Programming Language :: Python :: Implementation :: CPython
 Classifier: Programming Language :: Python :: Implementation :: PyPy
-Requires-Python: >=3.7
+Requires-Python: >=3.8
 Description-Content-Type: text/markdown
 License-File: LICENSE.txt
+Requires-Dist: numpy>=1.21
+Requires-Dist: scipy>=1.11
 
 # Water Tank
 
@@ -36,7 +38,7 @@ Water tanks are plastic reservoirs.
 ## Installation
 
 ```console
-pip install water-tank
+pip install git+https://github.com/vitay/water-tank.git@master
 ```
 
 ## License

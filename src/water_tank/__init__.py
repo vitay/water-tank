@@ -6,3 +6,5 @@ from .Projections import connect, DenseProjection, SparseProjection
 from .LearningRules import DeltaLearningRule, RLS, MiconiLearningRule
 from .RandomDistributions import Const, Uniform, Normal, Bernouilli
 from .Recorders import Recorder
+
+__version__ = "0.0.2"
