@@ -375,7 +375,7 @@
     "href": "index.html",
     "title": "Water Tank",
     "section": "",
-    "text": "Water tanks are plastic reservoirs.\nSource code: https://github.com/vitay/water-tank\nDocumentation: https://julien-vitay.net/water-tank/\n\n\nDependencies:\n\npython&gt;= 3.9\nnumpy &gt;= 1.21\nscipy&gt;= 1.11\n\nIn a virtual environment:\npip install git+https://github.com/vitay/water-tank.git@master\nor locally from the source code:\ngit clone https://github.com/vitay/water-tank.git\ncd water-tank\npip install -e .\n\n\n\nwater-tank is distributed under the terms of the MIT license.",
+    "text": "Water tanks are plastic reservoirs.\nSource code: https://github.com/vitay/water-tank\nDocumentation: https://julien-vitay.net/water-tank/\n\n\nDependencies:\n\npython&gt;= 3.9\nnumpy &gt;= 1.21\nscipy&gt;= 1.11\n\nIn a virtual environment:\npip install git+https://github.com/vitay/water-tank.git@main\nor locally from the source code:\ngit clone https://github.com/vitay/water-tank.git\ncd water-tank\npip install -e .\n\n\n\nwater-tank is distributed under the terms of the MIT license.",
     "crumbs": [
       "Home",
       "Water Tank"
@@ -386,7 +386,7 @@
     "href": "index.html#installation",
     "title": "Water Tank",
     "section": "",
-    "text": "Dependencies:\n\npython&gt;= 3.9\nnumpy &gt;= 1.21\nscipy&gt;= 1.11\n\nIn a virtual environment:\npip install git+https://github.com/vitay/water-tank.git@master\nor locally from the source code:\ngit clone https://github.com/vitay/water-tank.git\ncd water-tank\npip install -e .",
+    "text": "Dependencies:\n\npython&gt;= 3.9\nnumpy &gt;= 1.21\nscipy&gt;= 1.11\n\nIn a virtual environment:\npip install git+https://github.com/vitay/water-tank.git@main\nor locally from the source code:\ngit clone https://github.com/vitay/water-tank.git\ncd water-tank\npip install -e .",
     "crumbs": [
       "Home",
       "Water Tank"
@@ -644,7 +644,7 @@
     "href": "reference/DenseProjection.html",
     "title": "DenseProjection",
     "section": "",
-    "text": "DenseProjection(self, pre, post, weights, bias=None)\nDense weight matrix. Created and returned by connect().\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\npre\nLayer\ninput layer.\nrequired\n\n\npost\nLayer\noutput layer.\nrequired\n\n\nweights\ntyping.Union[float, water_tank.RandomDistributions.RandomDistribution]\nfloat or RandomDistribution to create the weight matrix.\nrequired\n\n\nbias\ntyping.Union[float, water_tank.RandomDistributions.RandomDistribution]\nbias per post neuron. If None or False, no bias is used. Otherwise, can be a float or RandomDistribution.\nNone\n\n\n\n\n\n\n\n\n\nName\nDescription\n\n\n\n\ninput\n\n\n\nnb_connections\n\n\n\nstep\nPerforms a weighted sum of inputs plus bias.\n\n\n\n\n\nDenseProjection.input(self, idx)\n\n\n\n\n\n\n\n\n\nType\nDescription\n\n\n\n\nnumpy.ndarray\nthe vector of inputs received by the neuron of index idx.\n\n\n\n\n\n\n\nDenseProjection.nb_connections(self, idx)\n\n\n\n\n\n\n\n\n\nType\nDescription\n\n\n\n\nint\nthe number of weights received by the neuron of index idx.\n\n\n\n\n\n\n\nDenseProjection.step(self)\nPerforms a weighted sum of inputs plus bias.",
+    "text": "DenseProjection(self, pre, post, weights, bias=None)\nDense weight matrix. Created and returned by connect().\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\npre\nLayer\ninput layer.\nrequired\n\n\npost\nLayer\noutput layer.\nrequired\n\n\nweights\ntyping.Union[float, water_tank.RandomDistributions.RandomDistribution]\nfloat or RandomDistribution to create the weight matrix.\nrequired\n\n\nbias\ntyping.Union[float, water_tank.RandomDistributions.RandomDistribution]\nbias per post neuron. If None or False, no bias is used. Otherwise, can be a float or RandomDistribution.\nNone\n\n\n\n\n\n\n\n\n\nName\nDescription\n\n\n\n\ninput\n\n\n\nload\nLoads a dictionary of learnable parameters.\n\n\nnb_connections\n\n\n\nsave\nReturns a dictionary of learnable parameters.\n\n\nstep\nPerforms a weighted sum of inputs plus bias.\n\n\n\n\n\nDenseProjection.input(self, idx)\n\n\n\n\n\n\n\n\n\nType\nDescription\n\n\n\n\nnumpy.ndarray\nthe vector of inputs received by the neuron of index idx.\n\n\n\n\n\n\n\nDenseProjection.load(self, data)\nLoads a dictionary of learnable parameters.\n\n\n\nDenseProjection.nb_connections(self, idx)\n\n\n\n\n\n\n\n\n\nType\nDescription\n\n\n\n\nint\nthe number of weights received by the neuron of index idx.\n\n\n\n\n\n\n\nDenseProjection.save(self)\nReturns a dictionary of learnable parameters.\n\n\n\nDenseProjection.step(self)\nPerforms a weighted sum of inputs plus bias.",
     "crumbs": [
       "API Reference",
       "Projections",
@@ -668,7 +668,7 @@
     "href": "reference/DenseProjection.html#methods",
     "title": "DenseProjection",
     "section": "",
-    "text": "Name\nDescription\n\n\n\n\ninput\n\n\n\nnb_connections\n\n\n\nstep\nPerforms a weighted sum of inputs plus bias.\n\n\n\n\n\nDenseProjection.input(self, idx)\n\n\n\n\n\n\n\n\n\nType\nDescription\n\n\n\n\nnumpy.ndarray\nthe vector of inputs received by the neuron of index idx.\n\n\n\n\n\n\n\nDenseProjection.nb_connections(self, idx)\n\n\n\n\n\n\n\n\n\nType\nDescription\n\n\n\n\nint\nthe number of weights received by the neuron of index idx.\n\n\n\n\n\n\n\nDenseProjection.step(self)\nPerforms a weighted sum of inputs plus bias.",
+    "text": "Name\nDescription\n\n\n\n\ninput\n\n\n\nload\nLoads a dictionary of learnable parameters.\n\n\nnb_connections\n\n\n\nsave\nReturns a dictionary of learnable parameters.\n\n\nstep\nPerforms a weighted sum of inputs plus bias.\n\n\n\n\n\nDenseProjection.input(self, idx)\n\n\n\n\n\n\n\n\n\nType\nDescription\n\n\n\n\nnumpy.ndarray\nthe vector of inputs received by the neuron of index idx.\n\n\n\n\n\n\n\nDenseProjection.load(self, data)\nLoads a dictionary of learnable parameters.\n\n\n\nDenseProjection.nb_connections(self, idx)\n\n\n\n\n\n\n\n\n\nType\nDescription\n\n\n\n\nint\nthe number of weights received by the neuron of index idx.\n\n\n\n\n\n\n\nDenseProjection.save(self)\nReturns a dictionary of learnable parameters.\n\n\n\nDenseProjection.step(self)\nPerforms a weighted sum of inputs plus bias.",
     "crumbs": [
       "API Reference",
       "Projections",
@@ -680,7 +680,7 @@
     "href": "reference/SparseProjection.html",
     "title": "SparseProjection",
     "section": "",
-    "text": "SparseProjection(self, pre, post, weights, bias=None, sparseness=0.1)\nSparse weight matrix. Created and returned by connect().\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\npre\nLayer\ninput layer.\nrequired\n\n\npost\nLayer\noutput layer.\nrequired\n\n\nweights\ntyping.Union[float, water_tank.RandomDistributions.RandomDistribution]\nfloat or RandomDistribution to create the weight matrix.\nrequired\n\n\nbias\ntyping.Union[float, water_tank.RandomDistributions.RandomDistribution]\nbias per post neuron. If None or False, no bias is used. Otherwise, can be a float or RandomDistribution.\nNone\n\n\nsparseness\nfloat\ndensity of the weight matrix.\n0.1\n\n\n\n\n\n\n\n\n\nName\nDescription\n\n\n\n\ninput\n\n\n\nnb_connections\n\n\n\nstep\nPerforms a weighted sum of inputs plus bias.\n\n\n\n\n\nSparseProjection.input(self, idx)\n\n\n\n\n\n\n\n\n\nType\nDescription\n\n\n\n\nnumpy.ndarray\nthe vector of inputs received by the neuron of index idx.\n\n\n\n\n\n\n\nSparseProjection.nb_connections(self, idx)\n\n\n\n\n\n\n\n\n\nType\nDescription\n\n\n\n\nint\nthe number of weights received by the neuron of index idx.\n\n\n\n\n\n\n\nSparseProjection.step(self)\nPerforms a weighted sum of inputs plus bias.",
+    "text": "SparseProjection(self, pre, post, weights, bias=None, sparseness=0.1)\nSparse weight matrix. Created and returned by connect().\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\npre\nLayer\ninput layer.\nrequired\n\n\npost\nLayer\noutput layer.\nrequired\n\n\nweights\ntyping.Union[float, water_tank.RandomDistributions.RandomDistribution]\nfloat or RandomDistribution to create the weight matrix.\nrequired\n\n\nbias\ntyping.Union[float, water_tank.RandomDistributions.RandomDistribution]\nbias per post neuron. If None or False, no bias is used. Otherwise, can be a float or RandomDistribution.\nNone\n\n\nsparseness\nfloat\ndensity of the weight matrix.\n0.1\n\n\n\n\n\n\n\n\n\nName\nDescription\n\n\n\n\ninput\n\n\n\nload\nLoads a dictionary of learnable parameters.\n\n\nnb_connections\n\n\n\nsave\nReturns a dictionary of learnable parameters.\n\n\nstep\nPerforms a weighted sum of inputs plus bias.\n\n\n\n\n\nSparseProjection.input(self, idx)\n\n\n\n\n\n\n\n\n\nType\nDescription\n\n\n\n\nnumpy.ndarray\nthe vector of inputs received by the neuron of index idx.\n\n\n\n\n\n\n\nSparseProjection.load(self, data)\nLoads a dictionary of learnable parameters.\n\n\n\nSparseProjection.nb_connections(self, idx)\n\n\n\n\n\n\n\n\n\nType\nDescription\n\n\n\n\nint\nthe number of weights received by the neuron of index idx.\n\n\n\n\n\n\n\nSparseProjection.save(self)\nReturns a dictionary of learnable parameters.\n\n\n\nSparseProjection.step(self)\nPerforms a weighted sum of inputs plus bias.",
     "crumbs": [
       "API Reference",
       "Projections",
@@ -704,7 +704,7 @@
     "href": "reference/SparseProjection.html#methods",
     "title": "SparseProjection",
     "section": "",
-    "text": "Name\nDescription\n\n\n\n\ninput\n\n\n\nnb_connections\n\n\n\nstep\nPerforms a weighted sum of inputs plus bias.\n\n\n\n\n\nSparseProjection.input(self, idx)\n\n\n\n\n\n\n\n\n\nType\nDescription\n\n\n\n\nnumpy.ndarray\nthe vector of inputs received by the neuron of index idx.\n\n\n\n\n\n\n\nSparseProjection.nb_connections(self, idx)\n\n\n\n\n\n\n\n\n\nType\nDescription\n\n\n\n\nint\nthe number of weights received by the neuron of index idx.\n\n\n\n\n\n\n\nSparseProjection.step(self)\nPerforms a weighted sum of inputs plus bias.",
+    "text": "Name\nDescription\n\n\n\n\ninput\n\n\n\nload\nLoads a dictionary of learnable parameters.\n\n\nnb_connections\n\n\n\nsave\nReturns a dictionary of learnable parameters.\n\n\nstep\nPerforms a weighted sum of inputs plus bias.\n\n\n\n\n\nSparseProjection.input(self, idx)\n\n\n\n\n\n\n\n\n\nType\nDescription\n\n\n\n\nnumpy.ndarray\nthe vector of inputs received by the neuron of index idx.\n\n\n\n\n\n\n\nSparseProjection.load(self, data)\nLoads a dictionary of learnable parameters.\n\n\n\nSparseProjection.nb_connections(self, idx)\n\n\n\n\n\n\n\n\n\nType\nDescription\n\n\n\n\nint\nthe number of weights received by the neuron of index idx.\n\n\n\n\n\n\n\nSparseProjection.save(self)\nReturns a dictionary of learnable parameters.\n\n\n\nSparseProjection.step(self)\nPerforms a weighted sum of inputs plus bias.",
     "crumbs": [
       "API Reference",
       "Projections",
