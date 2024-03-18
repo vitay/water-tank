@@ -25,7 +25,7 @@ class DeltaLearningRule(object):
         self.sparse = isinstance(self.projection, (SparseProjection))
         self._has_bias = self.projection._has_bias
 
-    def step(self, target):
+    def train(self, target):
 
         error = target - self.projection.post.output()
 
@@ -75,7 +75,7 @@ class RLS(object):
         ]
         
 
-    def step(self, error):
+    def train(self, error):
 
         # Apply the FORCE learning rule to the readout weights
         dW = []
@@ -110,3 +110,74 @@ class RLS(object):
 
 
 
+class MiconiLearningRule(object):
+    r"""
+    Miconi learning rule (reward-guided perturbation learning).
+
+    Equation:
+
+    $$TODO$$
+
+    Parameters:
+        projection: projection on which to apply the learning rule.
+        learning_rate: learning rate.
+    """
+
+    def __init__(self, 
+                 projection:Projection, 
+                 learning_rate:float,
+                 clip_dW:float,
+                 ):
+
+        self.projection = projection
+        self.learning_rate = learning_rate
+        self.clip_dW = clip_dW
+
+        self.nb_post = self.projection.post.size
+
+        self.sparse = isinstance(self.projection, (SparseProjection))
+        self._has_bias = self.projection._has_bias
+
+        self.trace = self.projection._empty_copy()
+
+    def step(self):
+        """
+        Update the trace. To be called at each time step.
+        """
+
+        if not self.sparse:
+            self.trace += np.outer(
+                self.projection.post.r - self.projection.post.r_mean, 
+                self.projection.pre.output()
+            )
+        else:
+            self.trace = 1.0
+
+    def train(self, reward:float, critic:float=0.0):
+        """
+        Modifies the weights based on the reward, the critic (average reward)
+        """
+
+        advantage = reward - critic
+
+        if not self.sparse:
+
+            dW = self.learning_rate * self.trace * advantage * critic
+
+            self.projection._update_parameters(
+                weights = dW.clip(min=-self.clip_dW, max=self.clip_dW),
+                bias=None, # TODO
+            )
+
+            self.trace.fill(0.0)
+
+        else:
+            dW = []
+            db = []
+
+            #for i in range(self.nb_post):
+            #    r = self.projection.input(i).reshape((-1, ))
+            #    dW.append(self.learning_rate * advantage[i] * r)
+            #    db.append(self.learning_rate * advantage[i])
+        
+            #self.projection._update_parameters(dW, db if self._has_bias else None)

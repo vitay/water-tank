@@ -76,12 +76,14 @@ class DenseProjection(Projection):
             self.W = weights.sample((self.post.size, self.pre.size))
         elif isinstance(weights, (float, int)):
             self.W = float(weights) * np.ones((self.post.size, self.pre.size))
-        else: # TODO: Check dimensions
+        elif isinstance(weights, np.ndarray):
+            self.W = weights # TODO: Check dimensions
+        else: 
             self.W = weights
 
         # No self-connection
         if pre == post:
-            np.fill_diagonal(self.W.diagonal, 0.0)
+            np.fill_diagonal(self.W, 0.0)
 
         # Bias
         self._has_bias = True
@@ -92,6 +94,8 @@ class DenseProjection(Projection):
             self.bias = float(bias) * np.ones(self.post.size)
         elif isinstance(bias, RandomDistribution):
             self.bias = bias.sample((self.post.size,))
+        elif isinstance(bias, np.ndarray):
+            self.bias = bias
         else: # bias=True works
             self.bias = np.zeros(self.post.size)
 
@@ -124,6 +128,22 @@ class DenseProjection(Projection):
             the vector of inputs received by the neuron of index `idx`.
         """
         return self.pre.output()
+    
+    def _empty_copy(self):
+        """
+        A matrix of the same shape, filled with zeros.
+        """
+        return np.zeros(self.W.shape)
+    
+    def _save(self):
+        """
+        Returns a dictionary of learnable parameters.
+        """
+        return {
+            'type': 'dense',
+            'W': self.W,
+            'bias': self.bias if self._has_bias else None,
+        }
 
 class SparseProjection(Projection):
     """
@@ -145,31 +165,50 @@ class SparseProjection(Projection):
 
         self.pre = pre
         self.post = post
-        self.weights_initializer = weights
-        self.bias_initializer = bias
         self.sparseness = sparseness
 
         self.nb_post = post.size
         self.nb_pre = pre.size
 
         # Weight matrix
-        if isinstance(self.weights_initializer, (float, int)):
-            self.weights_initializer = Const(float(self.weights_initializer))
-        self.W = sp.random(self.post.size, self.pre.size, density=self.sparseness, format='csr', data_rvs=self.weights_initializer.sample)
-        #self.W.setdiag(0.0)
+        if isinstance(weights, (float, int)):
+            weights_initializer = Const(float(weights))
+
+            self.W = sp.random(
+                self.post.size, self.pre.size, 
+                density=self.sparseness, 
+                format='csr', 
+                data_rvs=weights_initializer.sample
+            )
+            self.W.setdiag(0.0)
+        
+        elif isinstance(weights, (RandomDistribution,)):
+
+            self.W = sp.random(
+                self.post.size, self.pre.size, 
+                density=self.sparseness, 
+                format='csr', 
+                data_rvs=weights.sample
+            )
+            self.W.setdiag(0.0)
+        
+        elif isinstance(weights, (sp.sparray,)):
+            self.W = weights
         
         self.nb_weights = np.diff(self.W.indptr)
         self.connectivity = np.split(self.W.indices, self.W.indptr)[1:-1]
 
         # Bias
         self._has_bias = True
-        if self.bias_initializer is None or False:
+        if bias is None or False:
             self._has_bias = False
             self.bias = 0.0
-        elif isinstance(self.bias_initializer, (float, int)):
-            self.bias = float(self.bias_initializer) * np.ones(self.post.size)
-        elif isinstance(self.bias_initializer, RandomDistribution):
-            self.bias = self.bias_initializer.sample((self.post.size,))
+        elif isinstance(bias, (float, int)):
+            self.bias = float(bias) * np.ones(self.post.size)
+        elif isinstance(bias, RandomDistribution):
+            self.bias = bias.sample((self.post.size,))
+        elif isinstance(bias, np.ndarray):
+            self.bias = bias
         else: # bias=True works
             self.bias = np.zeros(self.post.size)
             
@@ -189,20 +228,43 @@ class SparseProjection(Projection):
 
     def step(self) -> None:
         "Performs a weighted sum of inputs plus bias."
+
         return self.W @ self.pre.output() + self.bias
     
     
-    def _update_parameters(self, weights:np.ndarray, bias:np.ndarray=None):
+    def _update_parameters(self, weights:sp.sparray, bias:sp.sparray=None) -> None:
         
         weights = [val for row in weights for val in row]
-        self.W += sp.csr_matrix((weights, self.W.indices, self.W.indptr), shape=self.W.shape) 
+        self.W += sp.csr_matrix(
+            (weights, self.W.indices, self.W.indptr), 
+            shape=self.W.shape
+        ) 
         if self._has_bias and bias is not None:
             self.bias += bias
     
-    def _set_parameters(self, weights:np.ndarray, bias:np.ndarray=None):
+    def _set_parameters(self, weights:np.ndarray, bias:np.ndarray=None) -> None:
 
         weights = [val for row in weights for val in row]
-        self.W = sp.csr_matrix((weights, self.W.indices, self.W.indptr), shape=self.W.shape) 
+        self.W = sp.csr_matrix(
+            (weights, self.W.indices, self.W.indptr), 
+            shape=self.W.shape
+        ) 
         if self._has_bias and bias is not None:
             self.bias = bias
 
+    def _empty_copy(self) -> sp.sparray:
+        """
+        A matrix of the same shape, filled with zeros.
+        """
+        return 0.0 * self.W.copy()
+    
+
+    def _save(self) -> dict:
+        """
+        Returns a dictionary of learnable parameters.
+        """
+        return {
+            'type': 'sparse',
+            'W': self.W,
+            'bias': self.bias if self._has_bias else None,
+        }

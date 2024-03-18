@@ -79,7 +79,7 @@ class ESN(object):
 
             # Learning
             if t >= warmup: 
-                self.learning_rule.step(error=y - self.readout.output())
+                self.learning_rule.train(error=y - self.readout.output())
 
             # Recording
             if record:

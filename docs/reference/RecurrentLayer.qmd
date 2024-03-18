@@ -21,6 +21,7 @@ $$\mathbf{r}(t) = f(\mathbf{x}(t))$$
 | Name | Description |
 | --- | --- |
 | [output](#water_tank.RecurrentLayer.output) |  |
+| [reset](#water_tank.RecurrentLayer.reset) | Resets the vectors x and r to 0. |
 | [step](#water_tank.RecurrentLayer.step) | Performs one update of the internal variables. |
 
 ### output { #water_tank.RecurrentLayer.output }
@@ -32,6 +33,12 @@ $$\mathbf{r}(t) = f(\mathbf{x}(t))$$
 | Type   | Description             |
 |--------|-------------------------|
 | None   | a vector of activities. |
+
+### reset { #water_tank.RecurrentLayer.reset }
+
+`RecurrentLayer.reset(self)`
+
+Resets the vectors x and r to 0.
 
 ### step { #water_tank.RecurrentLayer.step }
 

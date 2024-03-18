@@ -47,4 +47,4 @@ Various tools to facilitate simulations.
 
 | | |
 | --- | --- |
-| [Recorder](Recorder.qmd#water_tank.Recorder) | Structure to record activities during a simulation. |
+| [Recorder](Recorder.qmd#water_tank.Recorder) | Data structure to record activities during a simulation. |

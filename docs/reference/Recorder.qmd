@@ -2,7 +2,7 @@
 
 `Recorder(self)`
 
-Structure to record activities during a simulation.
+Data structure to record activities during a simulation.
 
 Example:
 
@@ -22,7 +22,7 @@ data = recorder.get()
 | Name | Description |
 | --- | --- |
 | [clear](#water_tank.Recorder.clear) | Clears the data. |
-| [get](#water_tank.Recorder.get) |  |
+| [get](#water_tank.Recorder.get) | Returns a dictionary with the recorded data. |
 | [record](#water_tank.Recorder.record) | Accumulates the content of the dictionary. Keys are created if needed. |
 
 ### clear { #water_tank.Recorder.clear }
@@ -34,6 +34,10 @@ Clears the data.
 ### get { #water_tank.Recorder.get }
 
 `Recorder.get(self)`
+
+Returns a dictionary with the recorded data.
+
+The next call to record() with clear the data.
 
 #### Returns
 
