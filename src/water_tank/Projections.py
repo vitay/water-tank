@@ -149,11 +149,16 @@ class DenseProjection(Projection):
         """
         Loads a dictionary of learnable parameters.
         """
+        # Load weight matrix
         self.W = np.array(data['W'])
-        self.bias = np.array(data['bias'])
-        self._has_bias = False if self.bias is None or False else True
 
+        # Load bias
+        self._has_bias = False if data['bias'] is None or False else True
 
+        if not self._has_bias:
+            self.bias = 0.0
+        else:
+            self.bias = np.array(data['bias'])
 
 class SparseProjection(Projection):
     """
@@ -289,7 +294,15 @@ class SparseProjection(Projection):
         """
         Loads a dictionary of learnable parameters.
         """
-        self.W = data['W']
+
+        # Load weight matrix
+        self.W = sp.csr_matrix(data['W'])
         self._analyze_W()
-        self.bias = data['bias']
-        self._has_bias = False if self.bias is None or False else True
+
+        # Load bias
+        self._has_bias = False if data['bias'] is None or False else True
+
+        if not self._has_bias:
+            self.bias = 0.0
+        else:
+            self.bias = np.array(data['bias'])

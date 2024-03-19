@@ -17,7 +17,7 @@ Dependencies:
 In a virtual environment:
 
 ```bash
-pip install git+https://github.com/vitay/water-tank.git@master
+pip install git+https://github.com/vitay/water-tank.git@main
 ```
 
 or locally from the source code:
