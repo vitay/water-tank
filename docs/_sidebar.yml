@@ -4,27 +4,26 @@ website:
     - reference/index.qmd
     - contents:
       - reference/RecurrentLayer.qmd
+      - reference/MiconiLayer.qmd
       - reference/LinearReadout.qmd
       - reference/StaticInput.qmd
       - reference/TimeSeriesInput.qmd
-      section: Layers
+      section: '**Layers**'
     - contents:
       - reference/connect.qmd
-      - reference/DenseProjection.qmd
-      - reference/SparseProjection.qmd
-      section: Projections
+      section: '**Projections**'
     - contents:
       - reference/DeltaLearningRule.qmd
       - reference/RLS.qmd
-      section: Learning rules
+      section: '**Learning rules**'
     - contents:
       - reference/Const.qmd
       - reference/Uniform.qmd
       - reference/Normal.qmd
       - reference/Bernouilli.qmd
-      section: Random distributions
+      section: '**Random distributions**'
     - contents:
       - reference/Recorder.qmd
-      section: Utilities
+      section: '**Utilities**'
     id: reference
   - id: dummy-sidebar

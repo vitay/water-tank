@@ -1,6 +1,6 @@
-# RLS { #water_tank.RLS }
+# RLS { #water_tank.rules.RLS.RLS }
 
-`RLS(self, projection, delta=1e-06)`
+`rules.RLS.RLS(self, projection, delta=1e-06)`
 
 Recursive least-squares (RLS) learning rule for FORCE learning.
 
@@ -10,3 +10,21 @@ Recursive least-squares (RLS) learning rule for FORCE learning.
 |--------------|------------|---------------------------------------------------|------------|
 | `projection` | Projection | projection on which to apply the learning rule.   | _required_ |
 | `delta`      | float      | initial diagonal value of the correlation matrix. | `1e-06`    |
+
+## Methods
+
+| Name | Description |
+| --- | --- |
+| [train](#water_tank.rules.RLS.RLS.train) | Applies one step of the RLS learning rule. |
+
+### train { #water_tank.rules.RLS.RLS.train }
+
+`rules.RLS.RLS.train(self, error)`
+
+Applies one step of the RLS learning rule.
+
+#### Parameters
+
+| Name    | Type          | Description                              | Default    |
+|---------|---------------|------------------------------------------|------------|
+| `error` | numpy.ndarray | error vector at the post-synaptic level. | _required_ |

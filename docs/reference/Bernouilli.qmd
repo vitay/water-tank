@@ -1,6 +1,6 @@
-# Bernouilli { #water_tank.Bernouilli }
+# Bernouilli { #water_tank.random.Bernouilli }
 
-`Bernouilli(self, values, p=0.5)`
+`random.Bernouilli(self, values, p=0.5)`
 
 Bernouilli (binomial) distribution, returning the first of the two values with probability $p$.
 
@@ -15,10 +15,10 @@ Bernouilli (binomial) distribution, returning the first of the two values with p
 
 | Name | Description |
 | --- | --- |
-| [sample](#water_tank.Bernouilli.sample) | Samples from the distribution and returns an array of the desired shape. |
+| [sample](#water_tank.random.Bernouilli.sample) | Samples from the distribution and returns an array of the desired shape. |
 
-### sample { #water_tank.Bernouilli.sample }
+### sample { #water_tank.random.Bernouilli.sample }
 
-`Bernouilli.sample(self, shape)`
+`random.Bernouilli.sample(self, shape)`
 
 Samples from the distribution and returns an array of the desired shape.

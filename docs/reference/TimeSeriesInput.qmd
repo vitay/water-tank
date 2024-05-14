@@ -1,6 +1,6 @@
-# TimeSeriesInput { #water_tank.TimeSeriesInput }
+# TimeSeriesInput { #water_tank.layers.TimeSeriesInput.TimeSeriesInput }
 
-`TimeSeriesInput(self, size, loop=True)`
+`layers.TimeSeriesInput.TimeSeriesInput(self, size, loop=True)`
 
 Dynamic placeholder for series of input vectors.
 
@@ -15,14 +15,14 @@ Dynamic placeholder for series of input vectors.
 
 | Name | Description |
 | --- | --- |
-| [output](#water_tank.TimeSeriesInput.output) |  |
-| [reset](#water_tank.TimeSeriesInput.reset) | Resets the buffer. |
-| [set](#water_tank.TimeSeriesInput.set) | Sets the buffer to `value`. |
-| [step](#water_tank.TimeSeriesInput.step) | Reads the next value. |
+| [output](#water_tank.layers.TimeSeriesInput.TimeSeriesInput.output) |  |
+| [reset](#water_tank.layers.TimeSeriesInput.TimeSeriesInput.reset) | Resets the buffer. |
+| [set](#water_tank.layers.TimeSeriesInput.TimeSeriesInput.set) | Sets the buffer to `value`. |
+| [step](#water_tank.layers.TimeSeriesInput.TimeSeriesInput.step) | Reads the next value. |
 
-### output { #water_tank.TimeSeriesInput.output }
+### output { #water_tank.layers.TimeSeriesInput.TimeSeriesInput.output }
 
-`TimeSeriesInput.output(self)`
+`layers.TimeSeriesInput.TimeSeriesInput.output(self)`
 
 #### Returns
 
@@ -30,20 +30,20 @@ Dynamic placeholder for series of input vectors.
 |---------------|-------------------------|
 | numpy.ndarray | a vector of activities. |
 
-### reset { #water_tank.TimeSeriesInput.reset }
+### reset { #water_tank.layers.TimeSeriesInput.TimeSeriesInput.reset }
 
-`TimeSeriesInput.reset(self)`
+`layers.TimeSeriesInput.TimeSeriesInput.reset(self)`
 
 Resets the buffer.
 
-### set { #water_tank.TimeSeriesInput.set }
+### set { #water_tank.layers.TimeSeriesInput.TimeSeriesInput.set }
 
-`TimeSeriesInput.set(self, value)`
+`layers.TimeSeriesInput.TimeSeriesInput.set(self, value)`
 
 Sets the buffer to `value`.
 
-### step { #water_tank.TimeSeriesInput.step }
+### step { #water_tank.layers.TimeSeriesInput.TimeSeriesInput.step }
 
-`TimeSeriesInput.step(self)`
+`layers.TimeSeriesInput.TimeSeriesInput.step(self)`
 
 Reads the next value.

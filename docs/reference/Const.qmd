@@ -1,6 +1,6 @@
-# Const { #water_tank.Const }
+# Const { #water_tank.random.Const }
 
-`Const(self, value)`
+`random.Const(self, value)`
 
 Constant "random" distribution, returning the same value.
 
@@ -14,10 +14,10 @@ Constant "random" distribution, returning the same value.
 
 | Name | Description |
 | --- | --- |
-| [sample](#water_tank.Const.sample) | Samples from the distribution and returns an array of the desired shape. |
+| [sample](#water_tank.random.Const.sample) | Samples from the distribution and returns an array of the desired shape. |
 
-### sample { #water_tank.Const.sample }
+### sample { #water_tank.random.Const.sample }
 
-`Const.sample(self, shape)`
+`random.Const.sample(self, shape)`
 
 Samples from the distribution and returns an array of the desired shape.

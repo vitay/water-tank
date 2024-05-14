@@ -1,0 +1,42 @@
+# MiconiLayer { #water_tank.layers.MiconiLayer.MiconiLayer }
+
+`layers.MiconiLayer.MiconiLayer(self, size, tau=30.0, transfer_function='tanh', perturbation_frequency=3.0, perturbation_amplitude=16.0, alpha_mean=0.05)`
+
+Reservoir of recurrently connected neurons, with perturbations and sliding mean.
+
+$$\tau \, \frac{d \mathbf{x}(t)}{dt} + \mathbf{x}(t) = W^\text{in} \times I(t) + W^\text{rec} \times \mathbf{r}(t) + W^\text{fb} \times \mathbf{z}(t) + \xi(t)$$
+    
+$$\mathbf{r}(t) = f(\mathbf{x}(t))$$
+
+$$\mathbf{r}_\text{mean}(t) = \alpha \, \mathbf{r}_\text{mean}(t-1) + (1 - \alpha) \, \mathbf{r}(t) $$
+
+## Parameters
+
+| Name                | Type   | Description        | Default    |
+|---------------------|--------|--------------------|------------|
+| `size`              | int    | number of neurons. | _required_ |
+| `tau`               | float  | time constant.     | `30.0`     |
+| `transfer_function` | str    | transfer function. | `'tanh'`   |
+
+## Methods
+
+| Name | Description |
+| --- | --- |
+| [output](#water_tank.layers.MiconiLayer.MiconiLayer.output) |  |
+| [step](#water_tank.layers.MiconiLayer.MiconiLayer.step) | Performs one update of the internal variables. |
+
+### output { #water_tank.layers.MiconiLayer.MiconiLayer.output }
+
+`layers.MiconiLayer.MiconiLayer.output(self)`
+
+#### Returns
+
+| Type   | Description             |
+|--------|-------------------------|
+| None   | a vector of activities. |
+
+### step { #water_tank.layers.MiconiLayer.MiconiLayer.step }
+
+`layers.MiconiLayer.MiconiLayer.step(self, perturbation=None)`
+
+Performs one update of the internal variables.

@@ -1,10 +1,8 @@
-
-from .Utils import measure
-from .Layers import StaticInput, TimeSeriesInput, LinearReadout, RecurrentLayer, MiconiLayer
-from .Reservoirs import ESN
-from .Projections import connect, DenseProjection, SparseProjection
-from .LearningRules import DeltaLearningRule, RLS, MiconiLearningRule
-from .RandomDistributions import Const, Uniform, Normal, Bernouilli
+from .layers import *
+from .projections import connect
+from .rules import *
+from .random import *
 from .Recorders import Recorder
+from .Utils import measure
 
-__version__ = "0.0.2"
+__version__ = "0.0.3"

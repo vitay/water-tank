@@ -1,6 +1,6 @@
-# DeltaLearningRule { #water_tank.DeltaLearningRule }
+# DeltaLearningRule { #water_tank.rules.DeltaLearningRule.DeltaLearningRule }
 
-`DeltaLearningRule(self, projection, learning_rate)`
+`rules.DeltaLearningRule.DeltaLearningRule(self, projection, learning_rate)`
 
 Delta learning rule (online linear regression).
 

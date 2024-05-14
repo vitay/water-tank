@@ -1,9 +1,9 @@
 import numpy as np
 
-from .Layers import StaticInput, RecurrentLayer, LinearReadout
-from .Projections import connect
-from .RandomDistributions import *
-from .LearningRules import RLS
+from .layers import StaticInput, RecurrentLayer, LinearReadout
+from .projections import connect
+from .random import *
+from .rules import RLS
 from .Recorders import Recorder
     
 

@@ -1,6 +1,6 @@
-# RecurrentLayer { #water_tank.RecurrentLayer }
+# RecurrentLayer { #water_tank.layers.RecurrentLayer.RecurrentLayer }
 
-`RecurrentLayer(self, size, tau=10.0, transfer_function='tanh')`
+`layers.RecurrentLayer.RecurrentLayer(self, size, tau=10.0, transfer_function='tanh')`
 
 Reservoir of recurrently connected neurons.
 
@@ -20,13 +20,13 @@ $$\mathbf{r}(t) = f(\mathbf{x}(t))$$
 
 | Name | Description |
 | --- | --- |
-| [output](#water_tank.RecurrentLayer.output) |  |
-| [reset](#water_tank.RecurrentLayer.reset) | Resets the vectors x and r to 0. |
-| [step](#water_tank.RecurrentLayer.step) | Performs one update of the internal variables. |
+| [output](#water_tank.layers.RecurrentLayer.RecurrentLayer.output) |  |
+| [reset](#water_tank.layers.RecurrentLayer.RecurrentLayer.reset) | Resets the vectors x and r to 0. |
+| [step](#water_tank.layers.RecurrentLayer.RecurrentLayer.step) | Performs one update of the internal variables. |
 
-### output { #water_tank.RecurrentLayer.output }
+### output { #water_tank.layers.RecurrentLayer.RecurrentLayer.output }
 
-`RecurrentLayer.output(self)`
+`layers.RecurrentLayer.RecurrentLayer.output(self)`
 
 #### Returns
 
@@ -34,14 +34,14 @@ $$\mathbf{r}(t) = f(\mathbf{x}(t))$$
 |--------|-------------------------|
 | None   | a vector of activities. |
 
-### reset { #water_tank.RecurrentLayer.reset }
+### reset { #water_tank.layers.RecurrentLayer.RecurrentLayer.reset }
 
-`RecurrentLayer.reset(self)`
+`layers.RecurrentLayer.RecurrentLayer.reset(self)`
 
 Resets the vectors x and r to 0.
 
-### step { #water_tank.RecurrentLayer.step }
+### step { #water_tank.layers.RecurrentLayer.RecurrentLayer.step }
 
-`RecurrentLayer.step(self)`
+`layers.RecurrentLayer.RecurrentLayer.step(self)`
 
 Performs one update of the internal variables.

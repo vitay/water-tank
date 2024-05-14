@@ -1,0 +1,9 @@
+---
+title: List of notebooks
+
+---
+
+## Time series
+
+* [Mackey-Glass autoregression](MackeyGlass.ipynb): classical autoregression with a regular ESN and the RLS learning rule.
+* [FORCE](FORCE.ipynb): the same, but the readout is fed back into the ESN.

@@ -1,6 +1,6 @@
-# StaticInput { #water_tank.StaticInput }
+# StaticInput { #water_tank.layers.StaticInput.StaticInput }
 
-`StaticInput(self, size)`
+`layers.StaticInput.StaticInput(self, size)`
 
 Static placeholder for input vectors.
 
@@ -14,13 +14,13 @@ Static placeholder for input vectors.
 
 | Name | Description |
 | --- | --- |
-| [output](#water_tank.StaticInput.output) |  |
-| [set](#water_tank.StaticInput.set) | Sets the value of the vector. The dimensions must match with `self.size`. |
-| [step](#water_tank.StaticInput.step) | Does nothing. |
+| [output](#water_tank.layers.StaticInput.StaticInput.output) |  |
+| [set](#water_tank.layers.StaticInput.StaticInput.set) | Sets the value of the vector. The dimensions must match with `self.size`. |
+| [step](#water_tank.layers.StaticInput.StaticInput.step) | Does nothing. |
 
-### output { #water_tank.StaticInput.output }
+### output { #water_tank.layers.StaticInput.StaticInput.output }
 
-`StaticInput.output(self)`
+`layers.StaticInput.StaticInput.output(self)`
 
 #### Returns
 
@@ -28,9 +28,9 @@ Static placeholder for input vectors.
 |---------------|-------------------------|
 | numpy.ndarray | a vector of activities. |
 
-### set { #water_tank.StaticInput.set }
+### set { #water_tank.layers.StaticInput.StaticInput.set }
 
-`StaticInput.set(self, value)`
+`layers.StaticInput.StaticInput.set(self, value)`
 
 Sets the value of the vector. The dimensions must match with `self.size`.
 
@@ -40,8 +40,8 @@ Sets the value of the vector. The dimensions must match with `self.size`.
 |---------|---------------|-------------------|------------|
 | `value` | numpy.ndarray | new vector value. | _required_ |
 
-### step { #water_tank.StaticInput.step }
+### step { #water_tank.layers.StaticInput.StaticInput.step }
 
-`StaticInput.step(self)`
+`layers.StaticInput.StaticInput.step(self)`
 
 Does nothing.

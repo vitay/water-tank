@@ -8,17 +8,16 @@ website:
   navbar:
     background: black
     pinned: false
+    toc: true
 
     # Sections have their own sidebar. Only list the first file.
-    left:
+    right:
       - text: "Home"
         file: index.qmd
       - text: "Notebooks"
-        file: notebooks/MackeyGlass.ipynb
+        file: notebooks/index.qmd
       - text: "API Reference"
         file: reference/index.qmd
-
-    right:
       - icon: github
         href: https://github.com/vitay/water-tank
         aria-label: GitHub
@@ -34,6 +33,7 @@ website:
     - title: "Notebooks"
       style: "docked"
       contents:
+        - notebooks/index.qmd
         - notebooks/MackeyGlass.ipynb
         - notebooks/FORCE.ipynb
 
@@ -73,32 +73,74 @@ quartodoc:
   sidebar: _sidebar.yml
 
   sections:
-    - title: Layers
-      desc: Layers available for inputs, reservoirs, readouts, etc.
+    - title: "**Layers**"
+      desc: |
+        Layers available for inputs, reservoirs, readouts, etc.
+
+        The objects must be explicitly imported:
+
+        ```python
+        import water_tank as wt
+
+        rc = wt.layers.RecurrentLayer(size=200, tau=3.0)
+        ```
+      package: water_tank.layers
       contents:
-        - RecurrentLayer
-        - LinearReadout
-        - StaticInput
-        - TimeSeriesInput
-    - title: Projections
+        - name: RecurrentLayer
+          package: water_tank.layers.RecurrentLayer
+        - name: MiconiLayer
+          package: water_tank.layers.MiconiLayer
+        - name: LinearReadout
+          package: water_tank.layers.LinearReadout
+        - name: StaticInput
+          package: water_tank.layers.StaticInput
+        - name: TimeSeriesInput
+          package: water_tank.layers.TimeSeriesInput
+
+    - title: "**Projections**"
       desc: Connecting layers with each other.
+      package: water_tank
       contents:
         - connect
-        - DenseProjection
-        - SparseProjection
-    - title: Learning rules
-      desc: Learning rules for online training of a projection.
+
+    - title: "**Learning rules**"
+      desc: |
+        Learning rules for online training of a projection.
+
+
+        The objects must be explicitly imported:
+
+        ```python
+        import water_tank as wt
+
+        lr = wt.rules.RLS(projection=esn_rc, delta=1e-6)
+        ```
+      package: water_tank.rules
       contents:
-        - DeltaLearningRule
-        - RLS
-    - title: Random distributions
-      desc: Simple wrappers around numpy's random distributions.
+        - name: DeltaLearningRule
+          package: water_tank.rules.DeltaLearningRule
+        - name: RLS
+          package: water_tank.rules.RLS
+
+    - title: "**Random distributions**"
+      desc: |
+        Simple wrappers around numpy's random distributions.
+
+        The objects must be explicitly imported:
+
+        ```python
+        import water_tank as wt
+
+        values = wt.random.Uniform.uniform(-1., 1.).sample((10, 10))
+        ```
+      package: water_tank.random
       contents:
-        - Const
-        - Uniform
-        - Normal
-        - Bernouilli
-    - title: Utilities
+        - name: Const
+        - name: Uniform
+        - name: Normal
+        - name: Bernouilli
+
+    - title: "**Utilities**"
       desc: Various tools to facilitate simulations. 
       contents:
         - Recorder

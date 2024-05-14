@@ -3,4 +3,8 @@
 *.pyc
 docs/_site
 docs/.quarto
-
+src/water_tank.egg-info
+build/
+src/water_tank/projections/sparse/*.cpp
+src/water_tank/projections/sparse/*.so
+test

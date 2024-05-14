@@ -1,6 +1,6 @@
-# LinearReadout { #water_tank.LinearReadout }
+# LinearReadout { #water_tank.layers.LinearReadout.LinearReadout }
 
-`LinearReadout(self, size)`
+`layers.LinearReadout.LinearReadout(self, size)`
 
 Linear readout layer. Performs a weighted sum of its inputs, without dynamics.
 
@@ -16,12 +16,12 @@ $$\mathbf{z} = W^o \times \mathbf{r}$$
 
 | Name | Description |
 | --- | --- |
-| [output](#water_tank.LinearReadout.output) |  |
-| [step](#water_tank.LinearReadout.step) | Performs one update of the internal variables. |
+| [output](#water_tank.layers.LinearReadout.LinearReadout.output) |  |
+| [step](#water_tank.layers.LinearReadout.LinearReadout.step) | Performs one update of the internal variables. |
 
-### output { #water_tank.LinearReadout.output }
+### output { #water_tank.layers.LinearReadout.LinearReadout.output }
 
-`LinearReadout.output(self)`
+`layers.LinearReadout.LinearReadout.output(self)`
 
 #### Returns
 
@@ -29,9 +29,9 @@ $$\mathbf{z} = W^o \times \mathbf{r}$$
 |---------------|-------------------------|
 | numpy.ndarray | a vector of activities. |
 
-### step { #water_tank.LinearReadout.step }
+### step { #water_tank.layers.LinearReadout.LinearReadout.step }
 
-`LinearReadout.step(self, force=None)`
+`layers.LinearReadout.LinearReadout.step(self, force=None)`
 
 Performs one update of the internal variables.
 
