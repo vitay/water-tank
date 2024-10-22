@@ -26,7 +26,7 @@ $$\mathbf{r}(t) = f(\mathbf{x}(t))$$
 
 ### output { #water_tank.layers.RecurrentLayer.RecurrentLayer.output }
 
-`layers.RecurrentLayer.RecurrentLayer.output(self)`
+`layers.RecurrentLayer.RecurrentLayer.output()`
 
 #### Returns
 
@@ -36,12 +36,12 @@ $$\mathbf{r}(t) = f(\mathbf{x}(t))$$
 
 ### reset { #water_tank.layers.RecurrentLayer.RecurrentLayer.reset }
 
-`layers.RecurrentLayer.RecurrentLayer.reset(self)`
+`layers.RecurrentLayer.RecurrentLayer.reset()`
 
 Resets the vectors x and r to 0.
 
 ### step { #water_tank.layers.RecurrentLayer.RecurrentLayer.step }
 
-`layers.RecurrentLayer.RecurrentLayer.step(self)`
+`layers.RecurrentLayer.RecurrentLayer.step()`
 
 Performs one update of the internal variables.

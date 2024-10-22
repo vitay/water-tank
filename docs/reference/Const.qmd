@@ -18,6 +18,6 @@ Constant "random" distribution, returning the same value.
 
 ### sample { #water_tank.random.Const.sample }
 
-`random.Const.sample(self, shape)`
+`random.Const.sample(shape)`
 
 Samples from the distribution and returns an array of the desired shape.

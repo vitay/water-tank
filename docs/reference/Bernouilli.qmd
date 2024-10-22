@@ -19,6 +19,6 @@ Bernouilli (binomial) distribution, returning the first of the two values with p
 
 ### sample { #water_tank.random.Bernouilli.sample }
 
-`random.Bernouilli.sample(self, shape)`
+`random.Bernouilli.sample(shape)`
 
 Samples from the distribution and returns an array of the desired shape.

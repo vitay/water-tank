@@ -19,6 +19,6 @@ Uniform distribution, returning values between `min` and `max`.
 
 ### sample { #water_tank.random.Uniform.sample }
 
-`random.Uniform.sample(self, shape)`
+`random.Uniform.sample(shape)`
 
 Samples from the distribution and returns an array of the desired shape.

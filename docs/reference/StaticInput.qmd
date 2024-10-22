@@ -20,28 +20,28 @@ Static placeholder for input vectors.
 
 ### output { #water_tank.layers.StaticInput.StaticInput.output }
 
-`layers.StaticInput.StaticInput.output(self)`
+`layers.StaticInput.StaticInput.output()`
 
 #### Returns
 
-| Type          | Description             |
-|---------------|-------------------------|
-| numpy.ndarray | a vector of activities. |
+| Type       | Description             |
+|------------|-------------------------|
+| np.ndarray | a vector of activities. |
 
 ### set { #water_tank.layers.StaticInput.StaticInput.set }
 
-`layers.StaticInput.StaticInput.set(self, value)`
+`layers.StaticInput.StaticInput.set(value)`
 
 Sets the value of the vector. The dimensions must match with `self.size`.
 
 #### Parameters
 
-| Name    | Type          | Description       | Default    |
-|---------|---------------|-------------------|------------|
-| `value` | numpy.ndarray | new vector value. | _required_ |
+| Name    | Type       | Description       | Default    |
+|---------|------------|-------------------|------------|
+| `value` | np.ndarray | new vector value. | _required_ |
 
 ### step { #water_tank.layers.StaticInput.StaticInput.step }
 
-`layers.StaticInput.StaticInput.step(self)`
+`layers.StaticInput.StaticInput.step()`
 
 Does nothing.

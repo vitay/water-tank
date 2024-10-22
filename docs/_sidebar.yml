@@ -4,7 +4,6 @@ website:
     - reference/index.qmd
     - contents:
       - reference/RecurrentLayer.qmd
-      - reference/MiconiLayer.qmd
       - reference/LinearReadout.qmd
       - reference/StaticInput.qmd
       - reference/TimeSeriesInput.qmd

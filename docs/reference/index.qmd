@@ -1,4 +1,4 @@
-# API reference
+# API reference {.doc .doc-index}
 
 ## **Layers**
 
@@ -16,7 +16,6 @@ rc = wt.layers.RecurrentLayer(size=200, tau=3.0)
 | | |
 | --- | --- |
 | [RecurrentLayer](RecurrentLayer.qmd#water_tank.layers.RecurrentLayer.RecurrentLayer) | Reservoir of recurrently connected neurons. |
-| [MiconiLayer](MiconiLayer.qmd#water_tank.layers.MiconiLayer.MiconiLayer) | Reservoir of recurrently connected neurons, with perturbations and sliding mean. |
 | [LinearReadout](LinearReadout.qmd#water_tank.layers.LinearReadout.LinearReadout) | Linear readout layer. Performs a weighted sum of its inputs, without dynamics. |
 | [StaticInput](StaticInput.qmd#water_tank.layers.StaticInput.StaticInput) | Static placeholder for input vectors. |
 | [TimeSeriesInput](TimeSeriesInput.qmd#water_tank.layers.TimeSeriesInput.TimeSeriesInput) | Dynamic placeholder for series of input vectors. |

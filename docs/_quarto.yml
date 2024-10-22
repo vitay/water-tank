@@ -88,8 +88,8 @@ quartodoc:
       contents:
         - name: RecurrentLayer
           package: water_tank.layers.RecurrentLayer
-        - name: MiconiLayer
-          package: water_tank.layers.MiconiLayer
+        #- name: MiconiLayer
+        #  package: water_tank.layers.MiconiLayer
         - name: LinearReadout
           package: water_tank.layers.LinearReadout
         - name: StaticInput

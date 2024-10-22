@@ -27,13 +27,13 @@ data = recorder.get()
 
 ### clear { #water_tank.Recorder.clear }
 
-`Recorder.clear(self)`
+`Recorder.clear()`
 
 Clears the data.
 
 ### get { #water_tank.Recorder.get }
 
-`Recorder.get(self)`
+`Recorder.get()`
 
 Returns a dictionary with the recorded data.
 
@@ -47,7 +47,7 @@ The next call to record() with clear the data.
 
 ### record { #water_tank.Recorder.record }
 
-`Recorder.record(self, data)`
+`Recorder.record(data)`
 
 Accumulates the content of the dictionary. Keys are created if needed.
 

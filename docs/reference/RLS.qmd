@@ -19,12 +19,12 @@ Recursive least-squares (RLS) learning rule for FORCE learning.
 
 ### train { #water_tank.rules.RLS.RLS.train }
 
-`rules.RLS.RLS.train(self, error)`
+`rules.RLS.RLS.train(error)`
 
 Applies one step of the RLS learning rule.
 
 #### Parameters
 
-| Name    | Type          | Description                              | Default    |
-|---------|---------------|------------------------------------------|------------|
-| `error` | numpy.ndarray | error vector at the post-synaptic level. | _required_ |
+| Name    | Type       | Description                              | Default    |
+|---------|------------|------------------------------------------|------------|
+| `error` | np.ndarray | error vector at the post-synaptic level. | _required_ |

@@ -21,22 +21,22 @@ $$\mathbf{z} = W^o \times \mathbf{r}$$
 
 ### output { #water_tank.layers.LinearReadout.LinearReadout.output }
 
-`layers.LinearReadout.LinearReadout.output(self)`
+`layers.LinearReadout.LinearReadout.output()`
 
 #### Returns
 
-| Type          | Description             |
-|---------------|-------------------------|
-| numpy.ndarray | a vector of activities. |
+| Type       | Description             |
+|------------|-------------------------|
+| np.ndarray | a vector of activities. |
 
 ### step { #water_tank.layers.LinearReadout.LinearReadout.step }
 
-`layers.LinearReadout.LinearReadout.step(self, force=None)`
+`layers.LinearReadout.LinearReadout.step(force=None)`
 
 Performs one update of the internal variables.
 
 #### Parameters
 
-| Name    | Type          | Description                                           | Default   |
-|---------|---------------|-------------------------------------------------------|-----------|
-| `force` | numpy.ndarray | if not None, force the output to the provided vector. | `None`    |
+| Name    | Type       | Description                                           | Default   |
+|---------|------------|-------------------------------------------------------|-----------|
+| `force` | np.ndarray | if not None, force the output to the provided vector. | `None`    |

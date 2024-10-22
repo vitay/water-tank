@@ -1,6 +1,6 @@
 # MiconiLayer { #water_tank.layers.MiconiLayer.MiconiLayer }
 
-`layers.MiconiLayer.MiconiLayer(self, size, tau=30.0, transfer_function='tanh', perturbation_frequency=3.0, perturbation_amplitude=16.0, alpha_mean=0.05)`
+`layers.MiconiLayer.MiconiLayer(self, size, tau=30.0, transfer_function='tanh', perturbation_frequency=3.0, perturbation_amplitude=16.0, alpha_mean=0.05, biases={0: 1.0, 1: 1.0, 2: -1.0})`
 
 Reservoir of recurrently connected neurons, with perturbations and sliding mean.
 
@@ -12,31 +12,48 @@ $$\mathbf{r}_\text{mean}(t) = \alpha \, \mathbf{r}_\text{mean}(t-1) + (1 - \alph
 
 ## Parameters
 
-| Name                | Type   | Description        | Default    |
-|---------------------|--------|--------------------|------------|
-| `size`              | int    | number of neurons. | _required_ |
-| `tau`               | float  | time constant.     | `30.0`     |
-| `transfer_function` | str    | transfer function. | `'tanh'`   |
+| Name                     | Type   | Description                                                                              | Default                     |
+|--------------------------|--------|------------------------------------------------------------------------------------------|-----------------------------|
+| `size`                   | int    | number of neurons.                                                                       | _required_                  |
+| `tau`                    | float  | time constant.                                                                           | `30.0`                      |
+| `transfer_function`      | str    | transfer function.                                                                       | `'tanh'`                    |
+| `perturbation_frequency` | float  | perturbation frequency.                                                                  | `3.0`                       |
+| `perturbation_amplitude` | float  | perturbation amplitude.                                                                  | `16.0`                      |
+| `alpha_mean`             | float  | alpha window for computing the mean.                                                     | `0.05`                      |
+| `biases`                 |        | dictionary of neuron indices and value to have bias neurons with a constant firing rate. | `{0: 1.0, 1: 1.0, 2: -1.0}` |
 
 ## Methods
 
 | Name | Description |
 | --- | --- |
+| [init](#water_tank.layers.MiconiLayer.MiconiLayer.init) | Initializes `x`, `r` randomly and `r_mean` to zero. |
 | [output](#water_tank.layers.MiconiLayer.MiconiLayer.output) |  |
 | [step](#water_tank.layers.MiconiLayer.MiconiLayer.step) | Performs one update of the internal variables. |
 
+### init { #water_tank.layers.MiconiLayer.MiconiLayer.init }
+
+`layers.MiconiLayer.MiconiLayer.init(x=Uniform(-0.1, 0.1), r_mean=Const(0.0))`
+
+Initializes `x`, `r` randomly and `r_mean` to zero.
+
 ### output { #water_tank.layers.MiconiLayer.MiconiLayer.output }
 
-`layers.MiconiLayer.MiconiLayer.output(self)`
+`layers.MiconiLayer.MiconiLayer.output()`
 
 #### Returns
 
-| Type   | Description             |
-|--------|-------------------------|
-| None   | a vector of activities. |
+| Type       | Description                   |
+|------------|-------------------------------|
+| np.ndarray | a vector of activities (`r`). |
 
 ### step { #water_tank.layers.MiconiLayer.MiconiLayer.step }
 
-`layers.MiconiLayer.MiconiLayer.step(self, perturbation=None)`
+`layers.MiconiLayer.MiconiLayer.step(perturbation=None)`
 
 Performs one update of the internal variables.
+
+#### Parameters
+
+| Name           | Type       | Description                             | Default   |
+|----------------|------------|-----------------------------------------|-----------|
+| `perturbation` | np.ndarray | array of perturbations for all neurons. | `None`    |

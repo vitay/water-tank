@@ -22,28 +22,28 @@ Dynamic placeholder for series of input vectors.
 
 ### output { #water_tank.layers.TimeSeriesInput.TimeSeriesInput.output }
 
-`layers.TimeSeriesInput.TimeSeriesInput.output(self)`
+`layers.TimeSeriesInput.TimeSeriesInput.output()`
 
 #### Returns
 
-| Type          | Description             |
-|---------------|-------------------------|
-| numpy.ndarray | a vector of activities. |
+| Type       | Description             |
+|------------|-------------------------|
+| np.ndarray | a vector of activities. |
 
 ### reset { #water_tank.layers.TimeSeriesInput.TimeSeriesInput.reset }
 
-`layers.TimeSeriesInput.TimeSeriesInput.reset(self)`
+`layers.TimeSeriesInput.TimeSeriesInput.reset()`
 
 Resets the buffer.
 
 ### set { #water_tank.layers.TimeSeriesInput.TimeSeriesInput.set }
 
-`layers.TimeSeriesInput.TimeSeriesInput.set(self, value)`
+`layers.TimeSeriesInput.TimeSeriesInput.set(value)`
 
 Sets the buffer to `value`.
 
 ### step { #water_tank.layers.TimeSeriesInput.TimeSeriesInput.step }
 
-`layers.TimeSeriesInput.TimeSeriesInput.step(self)`
+`layers.TimeSeriesInput.TimeSeriesInput.step()`
 
 Reads the next value.
