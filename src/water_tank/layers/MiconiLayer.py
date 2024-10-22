@@ -63,11 +63,16 @@ class MiconiLayer(Layer):
         """
         Initializes `x`, `r` randomly and `r_mean` to zero.
         """
+        # x random
         self.x = x.sample((self.size,))
+
+        # r from transfer function 
         self.r = self.transfer_function(self.x)
+        
         # Sources for the bias
         for idx, val in self.biases.items():
             self.r[idx] = val
+        
         self.r_mean = np.zeros((self.size,))
 
     def step(self, perturbation:np.ndarray=None) -> None:
@@ -75,25 +80,24 @@ class MiconiLayer(Layer):
         Performs one update of the internal variables.
 
         Parameters:
-            perturbation: array of indices of neurons receiving a perturbation.
+            perturbation: array of perturbations for all neurons.
         """
         # Afferent connections
         inputs = self._collect_inputs()
         
         # Perturbation
         if perturbation is not None:
-            noise = np.random.uniform(
-                -self.perturbation_amplitude, 
-                self.perturbation_amplitude, 
-                (self.size,))
-            inputs[perturbation] += noise[perturbation]
+            inputs += perturbation
 
         # Dynamics
         self.x += (inputs - self.x) / self.tau
+        
         # Firing rate
         self.r = self.transfer_function(self.x)
+        
         # Sources for the bias
         for idx, val in self.biases.items():
             self.r[idx] = val
+        
         # Sliding mean
-        self.r_mean = self.alpha_mean * self.r_mean + (1 - self.alpha_mean) * self. r
+        self.r_mean = self.alpha_mean * self.r_mean + (1 - self.alpha_mean) * self.r

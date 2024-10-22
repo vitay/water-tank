@@ -53,22 +53,11 @@ class MiconiLearningRule(object):
         """
         Modifies the weights based on the reward, the critic (average reward) and the trace.
         """
+            
+        scalar = self.learning_rate  * (reward - critic) * np.abs(critic)
 
-        if not self.sparse:
+        dW = scalar * self.trace
 
-            dW = self.learning_rate * self.trace * (reward - critic) * critic
+        self.projection.W += dW.clip(min=-self.clip_dW, max=self.clip_dW)
 
-            self.projection.W += dW.clip(min=-self.clip_dW, max=self.clip_dW),
-
-            self.trace.fill(0.0)
-
-        else:
-            dW = []
-            db = []
-
-            #for i in range(self.nb_post):
-            #    r = self.projection.input(i).reshape((-1, ))
-            #    dW.append(self.learning_rate * advantage[i] * r)
-            #    db.append(self.learning_rate * advantage[i])
-        
-            #self.projection._update_parameters(dW, db if self._has_bias else None)
+        self.trace *= 0.0

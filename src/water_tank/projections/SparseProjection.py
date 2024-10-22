@@ -37,7 +37,7 @@ class SparseProjection(Projection):
             weights = Const(float(weights))
         if isinstance(weights, (RandomDistribution,)):
             self.W = LIL(self.post.size, self.pre.size)
-            self.W.fill_random(proba=self.sparseness, weights=weights, diagonal=(not pre==post))
+            self.W.fill_random(proba=self.sparseness, weights=weights, self_connections=(not pre==post))
         elif isinstance(weights, (sp.sparray,)):
             self.W = LIL.from_scipy(weights)
 
@@ -78,7 +78,7 @@ class SparseProjection(Projection):
 
     def _empty_copy(self) -> sp.sparray:
         """
-        A matrix of the same shape, filled with zeros.
+        A matrix of the same shape with the same connections, but the values are filled with zeros.
         """
         return self.W.uniform_copy(0.0)
     
@@ -89,13 +89,15 @@ class SparseProjection(Projection):
         """
         return {
             'type': 'sparse',
-            'W': self.W,
+            'W': self.W, # TODO
             'bias': self.bias if self._has_bias else None,
         }
 
     def load(self, data: dict) -> None:
         """
         Loads a dictionary of learnable parameters.
+
+        TODO
         """
 
         # Load weight matrix

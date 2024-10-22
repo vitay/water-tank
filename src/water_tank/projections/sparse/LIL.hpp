@@ -145,6 +145,32 @@ public:
         }
     };
 
+
+    LILMatrix* clip_copy(float min, float max) {
+       
+        LILMatrix* mat = new LILMatrix(this->nb_post, this->nb_pre);
+
+        unsigned int nb_weights;
+        std::vector<float> vals;
+        
+        for(unsigned int idx_post=0; idx_post < this->nb_post; idx_post++){
+            
+            nb_weights = this->ranks[idx_post].size();
+            
+            mat->ranks[idx_post] = this->ranks[idx_post];
+        
+            vals = std::vector<float>(nb_weights, 0.0);
+        
+            for(unsigned int idx_pre=0; idx_pre < nb_weights; idx_pre++){
+                vals[idx_pre] = (this->values[idx_post][idx_pre] > max? max : (this->values[idx_post][idx_pre] < min? min : this->values[idx_post][idx_pre]));
+            }
+            
+            mat->values[idx_post] = vals;
+        }
+
+        return mat; 
+    };
+
     std::vector<float> multiply_vector_copy(std::vector<float> vec) {
 
         float val;

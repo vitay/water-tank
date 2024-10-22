@@ -31,6 +31,7 @@ cdef extern from "LIL.hpp" :
         LILMatrix* uniform_copy(float)
         LILMatrix* add_scalar_copy(float)
         LILMatrix* multiply_scalar_copy(float)
+        LILMatrix* clip_copy(float, float)
         vector[float] multiply_vector_copy(vector[float])
 
         LILMatrix* outer_product(vector[float], vector[float])
@@ -123,12 +124,14 @@ cdef class LIL(ConnectionMatrix):
         # Fill the row
         self.matrix.fill_row(idx, ranks, values)
 
-    def fill_random(self, proba:float, weights, diagonal=False):
+    def fill_random(self, proba:float, weights, self_connections=True):
         """
         Fills the sparse matrix with weights according to the given probability. Weights are sampled from the provided random distribution.
 
         Parameters:
             proba: Probability that a connections is connected.
+            weights: Random distribution to initialize the weights.
+            self_connections: if False, the elements on the diagonal will not be created.
         """
         # Instantiate if necessary
         if not self._instantiated: self._instantiate()
@@ -144,7 +147,7 @@ cdef class LIL(ConnectionMatrix):
             indices.clear()
 
             for idx_pre in range(self.nb_pre):
-                if not diagonal and idx_post == idx_pre: continue # self.connections
+                if not self_connections and idx_post == idx_pre: continue # self.connections
                 if rng.random() < proba: indices.append(idx_pre)
 
             self.matrix.fill_row(idx_post, indices, weights.sample(len(indices)))
@@ -178,15 +181,27 @@ cdef class LIL(ConnectionMatrix):
             self.matrix.multiply_scalar_copy(value)
         )
 
-    def multiply_vector(self, value):
+    def clip(self, min, max):
+        """
+        Returns a LIL matrix with the same ranks, but the values are clipped between `min` and `max`.
+        """
+        return LIL.create_matrix(
+            self.nb_post, self.nb_pre, 
+            self.matrix.clip_copy(min, max)
+        )
+
+    def multiply_vector(self, np.ndarray value):
         """
         Returns a LIL matrix with the same ranks, but the values are from a right-side multiplication with a dense vector.
+
+        Beware: the dimensions of the vector are not checked for speed reasons. It must be 1D with `nb_pre` elements.
         """
-        if value.ndim != 1:
-            raise Exception("Sparse matrices can only be multiplied by vectors.")
-        if value.size != self.nb_pre:
-            raise Exception("The vector must have the same size as the second dimension of the sparse matrix.")
-        
+        # Skip checks for speed
+        #if value.ndim != 1:
+        #    raise Exception("Sparse matrices can only be multiplied by vectors.")
+        #if value.size != self.nb_pre:
+        #    raise Exception("The vector must have the same size as the second dimension of the sparse matrix.")
+
         return np.array(self.matrix.multiply_vector_copy(value))
 
     def outer(self, left, right):
@@ -200,6 +215,8 @@ cdef class LIL(ConnectionMatrix):
 
         W += 0.1 * W.outer(error, pre)
         ```
+
+        The left vector must have `nb_post` elements, the right one `nb_pre`. The resulting matrix is `(nb_post, nb_pre)`.
         """
         if left.ndim != 1:
             raise Exception("Inputs must be 1D vectors.")
