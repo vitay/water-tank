@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Water Tank</title>
+<title>index – Water Tank</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -69,7 +103,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -84,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -127,25 +161,23 @@ window.Quarto = {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../notebooks/MackeyGlass.html"> 
+    <a class="nav-link" href="../notebooks/index.html"> 
 <span class="menu-text">Notebooks</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="../reference/index.html" aria-current="page"> 
 <span class="menu-text">API Reference</span></a>
   </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/vitay/water-tank"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
@@ -153,17 +185,17 @@ window.Quarto = {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/index.html">API reference</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -182,9 +214,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Layers</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>Layers</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -217,9 +249,9 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Projections</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>Projections</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -230,25 +262,13 @@ window.Quarto = {
  <span class="menu-text">connect</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/DenseProjection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">DenseProjection</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../reference/SparseProjection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SparseProjection</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">Learning rules</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>Learning rules</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -269,9 +289,9 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Random distributions</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>Random distributions</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -304,9 +324,9 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
- <span class="menu-text">Utilities</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>Utilities</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -331,11 +351,11 @@ window.Quarto = {
   <ul>
   <li><a href="#api-reference" id="toc-api-reference" class="nav-link active" data-scroll-target="#api-reference">API reference</a>
   <ul class="collapse">
-  <li><a href="#layers" id="toc-layers" class="nav-link" data-scroll-target="#layers">Layers</a></li>
-  <li><a href="#projections" id="toc-projections" class="nav-link" data-scroll-target="#projections">Projections</a></li>
-  <li><a href="#learning-rules" id="toc-learning-rules" class="nav-link" data-scroll-target="#learning-rules">Learning rules</a></li>
-  <li><a href="#random-distributions" id="toc-random-distributions" class="nav-link" data-scroll-target="#random-distributions">Random distributions</a></li>
-  <li><a href="#utilities" id="toc-utilities" class="nav-link" data-scroll-target="#utilities">Utilities</a></li>
+  <li><a href="#layers" id="toc-layers" class="nav-link" data-scroll-target="#layers"><strong>Layers</strong></a></li>
+  <li><a href="#projections" id="toc-projections" class="nav-link" data-scroll-target="#projections"><strong>Projections</strong></a></li>
+  <li><a href="#learning-rules" id="toc-learning-rules" class="nav-link" data-scroll-target="#learning-rules"><strong>Learning rules</strong></a></li>
+  <li><a href="#random-distributions" id="toc-random-distributions" class="nav-link" data-scroll-target="#random-distributions"><strong>Random distributions</strong></a></li>
+  <li><a href="#utilities" id="toc-utilities" class="nav-link" data-scroll-target="#utilities"><strong>Utilities</strong></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -346,96 +366,100 @@ window.Quarto = {
 
 
 
-<section id="api-reference" class="level1">
-<h1>API reference</h1>
+<section id="api-reference" class="level1 doc doc-index">
+<h1 class="doc doc-index">API reference</h1>
 <section id="layers" class="level2">
-<h2 class="anchored" data-anchor-id="layers">Layers</h2>
+<h2 class="anchored" data-anchor-id="layers"><strong>Layers</strong></h2>
 <p>Layers available for inputs, reservoirs, readouts, etc.</p>
-<table class="table">
+<p>The objects must be explicitly imported:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> water_tank <span class="im">as</span> wt</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>rc <span class="op">=</span> wt.layers.RecurrentLayer(size<span class="op">=</span><span class="dv">200</span>, tau<span class="op">=</span><span class="fl">3.0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top table">
 <tbody>
 <tr class="odd">
-<td><a href="../reference/RecurrentLayer.html#water_tank.RecurrentLayer">RecurrentLayer</a></td>
+<td><a href="../reference/RecurrentLayer.html#water_tank.layers.RecurrentLayer.RecurrentLayer">RecurrentLayer</a></td>
 <td>Reservoir of recurrently connected neurons.</td>
 </tr>
 <tr class="even">
-<td><a href="../reference/LinearReadout.html#water_tank.LinearReadout">LinearReadout</a></td>
+<td><a href="../reference/LinearReadout.html#water_tank.layers.LinearReadout.LinearReadout">LinearReadout</a></td>
 <td>Linear readout layer. Performs a weighted sum of its inputs, without dynamics.</td>
 </tr>
 <tr class="odd">
-<td><a href="../reference/StaticInput.html#water_tank.StaticInput">StaticInput</a></td>
+<td><a href="../reference/StaticInput.html#water_tank.layers.StaticInput.StaticInput">StaticInput</a></td>
 <td>Static placeholder for input vectors.</td>
 </tr>
 <tr class="even">
-<td><a href="../reference/TimeSeriesInput.html#water_tank.TimeSeriesInput">TimeSeriesInput</a></td>
+<td><a href="../reference/TimeSeriesInput.html#water_tank.layers.TimeSeriesInput.TimeSeriesInput">TimeSeriesInput</a></td>
 <td>Dynamic placeholder for series of input vectors.</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="projections" class="level2">
-<h2 class="anchored" data-anchor-id="projections">Projections</h2>
+<h2 class="anchored" data-anchor-id="projections"><strong>Projections</strong></h2>
 <p>Connecting layers with each other.</p>
-<table class="table">
+<table class="caption-top table">
 <tbody>
 <tr class="odd">
 <td><a href="../reference/connect.html#water_tank.connect">connect</a></td>
 <td>Connects two layers with a (sparse) weight matrix and optionally a bias vector.</td>
 </tr>
-<tr class="even">
-<td><a href="../reference/DenseProjection.html#water_tank.DenseProjection">DenseProjection</a></td>
-<td>Dense weight matrix. Created and returned by <code>connect()</code>.</td>
-</tr>
-<tr class="odd">
-<td><a href="../reference/SparseProjection.html#water_tank.SparseProjection">SparseProjection</a></td>
-<td>Sparse weight matrix. Created and returned by <code>connect()</code>.</td>
-</tr>
 </tbody>
 </table>
 </section>
 <section id="learning-rules" class="level2">
-<h2 class="anchored" data-anchor-id="learning-rules">Learning rules</h2>
+<h2 class="anchored" data-anchor-id="learning-rules"><strong>Learning rules</strong></h2>
 <p>Learning rules for online training of a projection.</p>
-<table class="table">
+<p>The objects must be explicitly imported:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> water_tank <span class="im">as</span> wt</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>lr <span class="op">=</span> wt.rules.RLS(projection<span class="op">=</span>esn_rc, delta<span class="op">=</span><span class="fl">1e-6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top table">
 <tbody>
 <tr class="odd">
-<td><a href="../reference/DeltaLearningRule.html#water_tank.DeltaLearningRule">DeltaLearningRule</a></td>
+<td><a href="../reference/DeltaLearningRule.html#water_tank.rules.DeltaLearningRule.DeltaLearningRule">DeltaLearningRule</a></td>
 <td>Delta learning rule (online linear regression).</td>
 </tr>
 <tr class="even">
-<td><a href="../reference/RLS.html#water_tank.RLS">RLS</a></td>
+<td><a href="../reference/RLS.html#water_tank.rules.RLS.RLS">RLS</a></td>
 <td>Recursive least-squares (RLS) learning rule for FORCE learning.</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="random-distributions" class="level2">
-<h2 class="anchored" data-anchor-id="random-distributions">Random distributions</h2>
+<h2 class="anchored" data-anchor-id="random-distributions"><strong>Random distributions</strong></h2>
 <p>Simple wrappers around numpy’s random distributions.</p>
-<table class="table">
+<p>The objects must be explicitly imported:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> water_tank <span class="im">as</span> wt</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> wt.random.Uniform.uniform(<span class="op">-</span><span class="fl">1.</span>, <span class="fl">1.</span>).sample((<span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top table">
 <tbody>
 <tr class="odd">
-<td><a href="../reference/Const.html#water_tank.Const">Const</a></td>
+<td><a href="../reference/Const.html#water_tank.random.Const">Const</a></td>
 <td>Constant “random” distribution, returning the same value.</td>
 </tr>
 <tr class="even">
-<td><a href="../reference/Uniform.html#water_tank.Uniform">Uniform</a></td>
+<td><a href="../reference/Uniform.html#water_tank.random.Uniform">Uniform</a></td>
 <td>Uniform distribution, returning values between <code>min</code> and <code>max</code>.</td>
 </tr>
 <tr class="odd">
-<td><a href="../reference/Normal.html#water_tank.Normal">Normal</a></td>
+<td><a href="../reference/Normal.html#water_tank.random.Normal">Normal</a></td>
 <td>Normal distribution, returning values with a mean of <code>mean</code> and a standard deviation of <code>std</code>.</td>
 </tr>
 <tr class="even">
-<td><a href="../reference/Bernouilli.html#water_tank.Bernouilli">Bernouilli</a></td>
+<td><a href="../reference/Bernouilli.html#water_tank.random.Bernouilli">Bernouilli</a></td>
 <td>Bernouilli (binomial) distribution, returning the first of the two values with probability <span class="math inline">p</span>.</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="utilities" class="level2">
-<h2 class="anchored" data-anchor-id="utilities">Utilities</h2>
+<h2 class="anchored" data-anchor-id="utilities"><strong>Utilities</strong></h2>
 <p>Various tools to facilitate simulations.</p>
-<table class="table">
+<table class="caption-top table">
 <tbody>
 <tr class="odd">
 <td><a href="../reference/Recorder.html#water_tank.Recorder">Recorder</a></td>
@@ -484,18 +508,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -527,7 +540,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/vitay\.github\.io\/water-tank\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -562,7 +615,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
