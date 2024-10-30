@@ -4,12 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "water-tank"
-dynamic = ["version"]
-description = ''
+version = "0.1.0"
+description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.10"
 license = {text = "MIT"}
-keywords = []
 authors = [
   { name = "Julien Vitay", email = "julien.vitay@informatik.tu-chemnitz.de" },
 ]
@@ -21,14 +19,19 @@ classifiers = [
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: Implementation :: CPython",
 ]
+requires-python = ">=3.12"
 dependencies = [
-    'numpy >= 1.21',
-    'scipy >= 1.11',
-    'cython >= 3.0',
+    "cython>=3.0.11",
+    "ipykernel>=6.29.5",
+    "matplotlib>=3.9.2",
+    "numpy>=2.1.2",
+    "quartodoc>=0.8.1",
+    "reservoirpy>=0.3.11",
+    "scipy>=1.14.1",
 ]
+
 
 [project.urls]
 Documentation = "https://github.com/vitay/water-tank#readme"
 Issues = "https://github.com/vitay/water-tank/issues"
 Source = "https://github.com/vitay/water-tank"
-
